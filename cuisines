@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuisines - St. Anthony the Great Orthodox Church International Food Festival</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'church-gold': '#C9A961',
+                        'church-blue': '#1E3A8A',
+                        'church-red': '#9B2C2C',
+                        'warm-cream': '#FEF3C7',
+                        'deep-amber': '#92400E',
+                    }
+                }
+            }
+        }
+    </script>
+     <style>
+        .gradient-header {
+        background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+        }
+
+        .world-ring-wrap {
+            background: white;
+            padding: 3.5rem 1rem 4rem;
+        }
+        .festival-globe-wrap {
+        --ring-size: min(90vw, 620px);
+        --globe-size: clamp(11rem, 40vw, 20rem);
+        --orbit-radius: calc((var(--ring-size) - clamp(48px, 6vw, 62px)) / 2 - 8px);
+        position: relative;
+        width: var(--ring-size);
+        aspect-ratio: 1;
+        margin: 0 auto;
+        display: grid;
+        place-items: center;
+        }
+
+        .festival-ring {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 9999px;
+        border: 8px solid transparent;
+        animation: festivalSpin 28s linear infinite;
+        box-shadow: none;
+        background: transparent;
+        }
+         
+        .festival-flag-slot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: rotate(var(--slot-angle, 0deg)) translateX(var(--orbit-radius));
+            transform-origin: center center;
+        }
+         
+      .festival-flag {
+            position: absolute;
+            left: 0%;
+            top: 0%;
+            width: clamp(48px, 6vw, 62px);
+            aspect-ratio: 4 / 3;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            border-radius: 0.1rem;
+            border: 1px solid rgba(255,255,255,0.85);
+            box-shadow: none;
+            z-index: 2;
+            overflow: hidden;
+            display: block;
+            animation: counterSpin 28s linear infinite;
+        }
+
+        .festival-flag img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+         @keyframes festivalSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes counterSpin {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(-360deg); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .festival-ring,
+            .festival-flag {
+                animation: none;
+            }
+        }
+
+   .festival-globe {
+    position: absolute;
+    width: var(--globe-size);
+    height: var(--globe-size);
+    border-radius: 9999px;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 18px 38px rgba(0,0,0,0.25);
+}
+
+.festival-globe img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+    </style>
+   
+</head>
+<body class="font-sans text-gray-800 bg-stone-50">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="logo.png" 
+                         alt="Food Festival Logo" 
+                         class="h-16 w-auto object-contain"
+                         onerror="this.style.display='none'">
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">About</a>                    
+                    <a href="cuisines.html" class="text-church-gold font-semibold border-b-2 border-church-gold">Cuisines</a>
+                    <a href="schedule.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Schedule</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Contact</a>
+
+                </div>
+
+                <button class="md:hidden p-2 rounded-lg hover:bg-gray-100" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-6 h-6 text-church-blue"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">About</a>
+                <a href="cuisines.html" class="block px-3 py-2 text-church-gold font-semibold bg-warm-cream rounded-md">Cuisines</a>
+                <a href="schedule.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Schedule</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Contact</a>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="pt-32 pb-12 gradient-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">International Cuisines</h1>
+            <p class="text-white/90 text-lg">Food and desserts from all over the world. Come taste and see!</p>
+        </div>
+    </section>
+
+
+<!-- World Flag Ring -->
+<section class="world-ring-wrap">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="festival-globe-wrap" aria-label="Moving world flags around a globe">
+
+            <!-- Spinning flag ring -->
+            <div class="festival-ring" id="cuisines-flag-ring"></div>
+
+            <!-- Globe in center -->
+            <div class="festival-globe">
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Whole_world_-_land_and_oceans_12000.jpg/1280px-Whole_world_-_land_and_oceans_12000.jpg"
+                    alt="Globe showing world map"
+                >
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Text and social icons below the ring -->
+<section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Visit again soon to see what's on the menu
+        </h2>
+
+        <p class="text-lg text-gray-700 leading-relaxed mb-8">
+            Follow us on
+        </p>
+
+        <div class="flex items-center justify-center gap-6 mb-8">
+
+                <!-- Facebook Icon -->
+                <a href="https://www.facebook.com/InternationalFoodFestival"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="text-church-gold hover:text-church-blue transition">
+                    <svg class="h-12 w-12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.099 4.388 23.094 10.125 24v-8.438H7.078v-3.49h3.047V9.41c0-3.017 1.792-4.686 4.533-4.686 1.313 0 2.687.236 2.687.236v2.963h-1.515c-1.493 0-1.958.931-1.958 1.887v2.265h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.099 24 12.073z"/>
+                    </svg>
+                </a>
+
+                <!-- Instagram Icon -->
+                <a href="https://www.instagram.com/satginternationalfoodfestival/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="text-church-gold hover:text-church-blue transition">
+                    <svg class="h-12 w-12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zM4 7.75A3.75 3.75 0 0 1 7.75 4h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5z"/>
+                        <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
+                        <circle cx="17.5" cy="6.5" r="1.25"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+</section>
+
+
+ <!-- Footer -->
+<footer class="bg-church-blue text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-left">
+            
+            <!-- Column 1 -->
+            <div class="flex flex-col items-center sm:items-start">
+                <div class="flex items-center gap-2 mb-4">
+                    <i data-lucide="church" class="h-6 w-6 text-orthodox-gold"></i>
+                    <span class="font-cinzel font-bold text-white text-lg">
+                        SATG International Food Festival
+                    </span>
+                </div>
+                <p class="text-sm leading-relaxed mb-4 max-w-xs">
+                    Celebrating Orthodox Christian tradition since 1982.
+                </p>
+                <div class="flex gap-4">
+                    <a href="https://www.facebook.com/InternationalFoodFestival"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="text-orthodox-gold hover:text-white transition">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.099 4.388 23.094 10.125 24v-8.438H7.078v-3.49h3.047V9.41c0-3.017 1.792-4.686 4.533-4.686 1.313 0 2.687.236 2.687.236v2.963h-1.515c-1.493 0-1.958.931-1.958 1.887v2.265h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.099 24 12.073z"/>
+                        </svg>
+                    </a>
+                 <a href="https://www.instagram.com/satginternationalfoodfestival/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="text-orthodox-gold hover:text-white transition">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zM4 7.75A3.75 3.75 0 0 1 7.75 4h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5z"/>
+                            <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
+                            <circle cx="17.5" cy="6.5" r="1.25"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div>
+                <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="index.html" class="hover:text-orthodox-gold transition">Home</a></li>
+                    <li><a href="about.html" class="hover:text-orthodox-gold transition">About</a></li>
+                    <li><a href="cuisines.html" class="hover:text-orthodox-gold transition">Cuisines</a></li>
+                    <li><a href="schedule.html" class="hover:text-orthodox-gold transition">Schedule</a></li>
+                    <li><a href="contact.html" class="hover:text-orthodox-gold transition">Contact Us</a></li>
+  
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div>
+                <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Contact Info</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-start justify-center sm:justify-start gap-2">
+                        <i data-lucide="map-pin" class="h-4 w-4 mt-1 text-orthodox-gold"></i>
+                        <span>
+                            7202 Farm to Market 2920<br>
+                            Spring, TX 77379
+                        </span>
+                    </li>
+
+                    <li class="flex items-center justify-center sm:justify-start gap-2">
+                        <i data-lucide="mail" class="h-4 w-4 text-orthodox-gold"></i>
+                        <span>info@satginternationalfoodfest.org</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Column 4 (Optional Balance Column) -->
+            <div class="flex flex-col items-center sm:items-start">
+                <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Festival Hours</h4>
+                <p class="text-sm">Friday: 4 PM – 10 PM</p>
+                <p class="text-sm">Saturday: 11 AM – 10 PM</p>
+            
+            </div>
+
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="mt-12 pt-6 border-t border-stone-600 text-center text-sm">
+            <p>&copy; 2026 St. Anthony the Great Orthodox Christian Church. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    
+
+            <script>
+        lucide.createIcons();
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+
+</body>
+</html>
+
+    
+
+            <script>
+        lucide.createIcons();
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+
+        (function setupCuisinesFlagOrbit() {
+            const ring = document.getElementById('cuisines-flag-ring');
+            if (!ring) return;
+
+            const flags = [
+                { code: 'us', name: 'United States' },
+                { code: 'ph', name: 'Philippines' },
+                { code: 'gr', name: 'Greece' },
+                { code: 'fr', name: 'France' },
+                { code: 'it', name: 'Italy' },
+                { code: 'de', name: 'Germany' },
+                { code: 'es', name: 'Spain' },
+                { code: 'pt', name: 'Portugal' },
+                { code: 'ch', name: 'Switzerland' },
+                { code: 'ru', name: 'Russia' },
+                { code: 'no', name: 'Norway' },
+                { code: 'fi', name: 'Finland' },
+                { code: 'ca', name: 'Canada' },
+                { code: 'mx', name: 'Mexico' },
+                { code: 'ua', name: 'Ukraine' },
+                { code: 'ar', name: 'Argentina' },
+                { code: 'eg', name: 'Egypt' },
+                { code: 'lb', name: 'Lebanon' },
+                { code: 'et', name: 'Ethiopia' },
+                { code: 'in', name: 'India' },
+                { code: 'jp', name: 'Japan' },
+                { code: 'kr', name: 'South Korea' },
+                { code: 'cn', name: 'China' },
+                { code: 'au', name: 'Australia' }
+            ];
+
+
+
+            flags.forEach((flag, i) => {
+
+
+                const slot = document.createElement('span');
+                slot.className = 'festival-flag-slot';
+                const angle = (i / flags.length) * 360;
+                slot.style.setProperty('--slot-angle', `${angle}deg`);
+
+                const flagCard = document.createElement('span');
+                flagCard.className = 'festival-flag';
+
+                const image = document.createElement('img');
+                image.src = `https://flagcdn.com/w80/${flag.code}.png`;
+                image.alt = `${flag.name} flag`;
+                image.loading = 'lazy';
+
+                flagCard.appendChild(image);
+                slot.appendChild(flagCard);
+                ring.appendChild(slot);
+            });
+        })();
+
+
+    </script>
+
+</body>
+</html>
