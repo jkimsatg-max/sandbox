@@ -49,6 +49,9 @@
                         alt="Food Festival Logo" 
                          class="h-16 w-auto object-contain"
                          onerror="this.style.display='none'">
+                         <div class="hidden md:block">
+                        <h1 class="font-serif text-lg font-bold text-church-blue leading-tight">St. Anthony the Great</h1>
+                        <p class="text-xs text-gray-600">Orthodox Christian Church</p>
                 </a>
                 
                 <div class="hidden md:flex items-center space-x-8">
@@ -115,6 +118,7 @@
             </div>
         </div>
     </section>
+
     <!-- International Food Festival About Section -->
     <section class="py-20 bg-stone-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
