@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - St. Anthony the Great Orthodox Christian Church International Food Festival</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'church-gold': '#C9A961',
+                        'church-blue': '#1E3A8A',
+                        'church-red': '#9B2C2C',
+                        'warm-cream': '#FEF3C7',
+                        'deep-amber': '#92400E',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+      
+        .gradient-header {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-stone-50">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="logo.png"                         
+                        alt="Food Festival Logo" 
+                         class="h-16 w-auto object-contain"
+                         onerror="this.style.display='none'">
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Home</a>
+                <a href="about.html" class="text-church-gold font-semibold border-b-2 border-church-goldd">About</a>                
+                <a href="cuisines.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Cuisines</a>
+                <a href="schedule.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Schedule</a>
+                <a href="contact.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Contact</a>
+
+                </div>
+
+                <button class="md:hidden p-2 rounded-lg hover:bg-gray-100" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-6 h-6 text-church-blue"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Home</a>            
+                <a href="about.html" class="block px-3 py-2 text-church-gold font-semibold bg-warm-cream rounded-md">About</a>
+                <a href="cuisines.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Cuisines</a>
+                <a href="schedule.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Schedule</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Contact</a>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="pt-32 pb-12 gradient-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Plan Your Day at the Festival</h1>
+            <p class="text-white/90 text-lg">Everything you need to know for your visit</p>
+        </div>
+    </section>
+
+      <!-- About Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900">Who We Are</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        St. Anthony the Great Orthodox Christian Church is a Pan-Orthodox Church that continues the same religious traditions and teachings of the Apostles as learned from Jesus Christ - love God and love your neighbor.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        St. Anthony the Great began as an outreach program in 1982 extending from our mother parish, St. George who wanted to establish an Orthodox Christian Church in the Northwest Houston area. Initial meetings were held in a subdivision clubhouse and homes until a temporary place of worship was established in a shopping center suite on FM 1960. Worship then moved to a small property in 1987 after land was purchased by parishioners. In April of 2011, St. Anthony the Great moved to its current location and continues to seek ways to connect with the surrounding community.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        We invite you to come and see who we are and have food and fun at our 1st Annual International Food Festival.
+                    </p>
+                </div>
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 w-full h-full bg-church-gold/20 rounded-2xl"></div>
+                    <img
+                        src="1_pic.webp"
+                        alt="St. Anthony the Great Orthodox Christian Church"
+                        class="relative rounded-2xl shadow-2xl w-full object-cover h-96"
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- International Food Festival About Section -->
+    <section class="py-20 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-1 gap-12 items-center">
+                <div class="relative order-1">
+
+                </div>
+                <div class="space-y-6 order-2">
+
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900">International Food Festival</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Our International Food Festival is a joyful community celebration with delicious cuisine, warm hospitality, and fun for all ages. Come experience the rich flavors and traditions shared by our parish family while supporting the ongoing ministries of St. Anthony the Great.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Whether you are visiting for your favorite dish, exploring something new, or simply spending time with friends and family, this festival is a beautiful way to connect with the community and enjoy a weekend full of culture, faith, and fellowship.
+                    </p>
+
+        </div>
+
+    </div>
+</section>
+
+ <!-- Location Content -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid md:grid-cols-2 gap-12 mb-16">
+            <!-- Address Card -->
+            <div class="bg-stone-50 rounded-2xl p-8 shadow-lg">
+                <div class="flex items-center mb-6">
+                    <div class="bg-church-gold p-3 rounded-full mr-4">
+                        <i data-lucide="map-pin" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <h2 class="font-serif text-2xl font-bold text-gray-900">Address</h2>
+                </div>
+                <div class="space-y-3 text-gray-700">
+                    <p class="text-lg font-medium">St. Anthony the Great Orthodox Christian Church</p>
+                    <p>7202 Farm to Market 2920</p>
+                    <p>Spring, TX 77379</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=7202+Farm+to+Market+2920,+Spring,+TX+77379"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center text-church-blue hover:text-church-gold font-medium mt-2">
+                        <i data-lucide="external-link" class="w-4 h-4 mr-1"></i>
+                        Get Directions on Google Maps
+                    </a>
+                </div>
+            </div>
+
+            <!-- Event Date & Time Card -->
+            <div class="bg-stone-50 rounded-2xl p-8 shadow-lg">
+                <div class="flex items-center mb-6">
+                    <div class="bg-church-red p-3 rounded-full mr-4">
+                        <i data-lucide="calendar-days" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <h2 class="font-serif text-2xl font-bold text-gray-900">Dates &amp; Times</h2>
+                </div>
+                <div class="space-y-4 text-gray-700">
+                    <div>
+                        <p class="font-semibold">Friday, October 9, 2026</p>
+                        <p>4:00 PM – 10:00 PM</p>
+                    </div>
+                    <div>
+                        <p class="font-semibold">Saturday, October 10, 2026</p>
+                        <p>11:00 AM – 10:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+  
+                <!-- Parking Card -->
+                <div class="bg-stone-50 rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-church-blue p-3 rounded-full mr-4">
+                            <i data-lucide="car" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h2 class="font-serif text-2xl font-bold text-gray-900">Parking</h2>
+                    </div>
+                    <div class="space-y-3 text-gray-700">
+                        <p><strong>Free parking available:</strong></p>
+                        <ul class="space-y-2 ml-4 list-disc">
+                            <li>Main church parking lot</li>
+                            <li>Handicap accessible spaces near entrance</li>
+                        </ul>
+                    
+                    </div>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="bg-stone-50 rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-600 p-3 rounded-full mr-4">
+                            <i data-lucide="credit-card" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h2 class="font-serif text-2xl font-bold text-gray-900">Payment Methods</h2>
+                    </div>
+                    <div class="space-y-3 text-gray-700">
+                        <p><strong>We accept:</strong></p>
+                        <div class="flex flex-wrap gap-3 mt-3">
+                            <span class="bg-white px-3 py-1 rounded-full text-sm border">Cash</span>
+                            <span class="bg-white px-3 py-1 rounded-full text-sm border">Credit Cards</span>
+                            <span class="bg-white px-3 py-1 rounded-full text-sm border">Debit Cards</span>
+                            <span class="bg-white px-3 py-1 rounded-full text-sm border">Apple Pay</span>
+                        </div>
+                     
+                    </div>
+                </div>
+
+ 
+             <!-- Accessibility -->
+                <div class="bg-stone-50 rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-purple-600 p-3 rounded-full mr-4">
+                            <i data-lucide="accessibility" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h2 class="font-serif text-2xl font-bold text-gray-900">Accessibility</h2>
+                    </div>
+                    <div class="space-y-3 text-gray-700">
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-2 mt-0.5"></i>
+                                <span>Wheelchair accessible entrances</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-2 mt-0.5"></i>
+                                <span>ADA-accessible restrooms</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-2 mt-0.5"></i>
+                                <span>Designated accessible seating areas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-2 mt-0.5"></i>
+                                <span>Service animals permitted</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+         <!-- Centered Map Card -->
+<section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-10">
+            <h2 class="font-serif text-3xl font-bold text-gray-900 mb-3">
+                Visit Us
+            </h2>
+            <p class="text-gray-600">
+                7202 Farm to Market 2920 • Spring, TX 77379
+            </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto bg-stone-50 rounded-2xl p-8 shadow-2xl border border-church-gold/20">
+            
+            <!-- Embedded Map -->
+            <div class="rounded-2xl overflow-hidden shadow-lg border-4 border-church-gold/30">
+                <iframe
+                    src="https://www.google.com/maps?q=7202+Farm+to+Market+2920,+Spring,+TX+77379&output=embed"
+                    width="100%"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <!-- Centered Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mt-8">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=7202+Farm+to+Market+2920,+Spring,+TX+77379"
+                   target="_blank"
+                   class="inline-flex items-center px-6 py-3 bg-church-blue text-white rounded-lg hover:bg-church-gold transition shadow-md">
+                    <i data-lucide="navigation" class="w-4 h-4 mr-2"></i>
+                    Get Directions
+                </a>
+
+                
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+           
+<!-- Device Detection Script -->
+<script>
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+    if (isIOS) {
+        document.getElementById('primary-map-link').href =
+            "https://maps.apple.com/?address=7202+Farm+to+Market+2920,+Spring,+TX+77379";
+
+        document.getElementById('directions-btn').href =
+            "https://maps.apple.com/?daddr=7202+Farm+to+Market+2920,+Spring,+TX+77379";
+
+        document.getElementById('secondary-map-link').href =
+            "https://www.google.com/maps/search/?api=1&query=7202+Farm+to+Market+2920,+Spring,+TX+77379";
+    }
+</script>
+
+ <!-- FAQ Section -->
+          <div class="mt-16 mb-20 border-t-4 border-orthodox-gold pt-12">
+            <h2 class="font-cinzel text-2xl font-bold text-renaissance-brown mb-8 text-center">Frequently Asked Questions</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
+                    <h3 class="font-bold text-renaissance-brown mb-2">Is parking free?</h3>
+                    <p class="text-sm text-gray-600">Yes! Free parking is available on-site at the main church parking lot. Handicap accessible spaces near entrance.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
+                    <h3 class="font-bold text-renaissance-brown mb-2">Can I bring my dog?</h3>
+                    <p class="text-sm text-gray-600"> Service animals are permitted. Please leave pets at home due to food service areas and large crowds.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
+                    <h3 class="font-bold text-renaissance-brown mb-2">What payment methods are accepted?</h3>
+                    <p class="text-sm text-gray-600">We accept cash, credit cards, debit cards, and Apple Pay. </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
+                    <h3 class="font-bold text-renaissance-brown mb-2">Are there vegetarian options?</h3>
+                    <p class="text-sm text-gray-600">Absolutely! Many Orthodox fasting dishes are naturally vegan. Look for (V) markers on menu items.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
+                    <h3 class="font-bold text-renaissance-brown mb-2">Is the festival rain or shine?</h3>
+                    <p class="text-sm text-gray-600">Yes! Most vendors are under tents, and the church hall provides indoor space for some activities.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
+                    <h3 class="font-bold text-renaissance-brown mb-2">Is there a Lost and Found?</h3>
+                    <p class="text-sm text-gray-600">Please email info@satginternationalfoodfest.org for any lost and found items.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
+                    <h3 class="font-bold text-renaissance-brown mb-2">Is the festival indoors or outdoors?</h3>
+                    <p class="text-sm text-gray-600">The festival includes both indoor and outdoor activities. Church tours will take place inside the church. Tents
+will be available outdoors for shade.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
+                    <h3 class="font-bold text-renaissance-brown mb-2">What are the festival hours?</h3>
+                    <p class="text-sm text-gray-600"> Friday: 4 PM - 10 PM and Saturday: 11 AM - 10 PM</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
+                    <h3 class="font-bold text-renaissance-brown mb-2">Is the festival family-friendly?</h3>
+                    <p class="text-sm text-gray-600">Yes! Bring the whole family and enjoy a variety of fun activities for the kids at our Children&#39;s Village.</p>
+                </div>
+
+                       <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
+                    <h3 class="font-bold text-renaissance-brown mb-2">When are church tours available?</h3>
+                    <p class="text-sm text-gray-600"> Church tours will be available on Saturday.</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+        
+<!-- Footer -->
+<footer class="bg-church-blue text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-left">
+            
+            <!-- Column 1 -->
+            <div class="flex flex-col items-center sm:items-start">
+                <div class="flex items-center gap-2 mb-4">
+                    <i data-lucide="church" class="h-6 w-6 text-orthodox-gold"></i>
+                    <span class="font-cinzel font-bold text-white text-lg">
+                        SATG International Food Festival
+                    </span>
+                </div>
+                <p class="text-sm leading-relaxed mb-4 max-w-xs">
+                    Celebrating Orthodox Christian tradition since 1982.
+                </p>
+                <div class="flex gap-4">
+                                       <a href="https://www.facebook.com/InternationalFoodFestival"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="text-orthodox-gold hover:text-white transition">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.099 4.388 23.094 10.125 24v-8.438H7.078v-3.49h3.047V9.41c0-3.017 1.792-4.686 4.533-4.686 1.313 0 2.687.236 2.687.236v2.963h-1.515c-1.493 0-1.958.931-1.958 1.887v2.265h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.099 24 12.073z"/>
+                        </svg>
+                    </a>
+                 <a href="https://www.instagram.com/satginternationalfoodfestival/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="text-orthodox-gold hover:text-white transition">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zM4 7.75A3.75 3.75 0 0 1 7.75 4h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5z"/>
+                            <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
+                            <circle cx="17.5" cy="6.5" r="1.25"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div>
+                <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="index.html" class="hover:text-orthodox-gold transition">Home</a></li>
+                    <li><a href="about.html" class="hover:text-orthodox-gold transition">About</a></li>
+                    <li><a href="cuisines.html" class="hover:text-orthodox-gold transition">Cuisines</a></li>
+                    <li><a href="schedule.html" class="hover:text-orthodox-gold transition">Schedule</a></li>                    
+                    <li><a href="contact.html" class="hover:text-orthodox-gold transition">Contact Us</a></li>
+
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div>
+                <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Contact Info</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-start justify-center sm:justify-start gap-2">
+                        <i data-lucide="map-pin" class="h-4 w-4 mt-1 text-orthodox-gold"></i>
+                        <span>
+                            7202 Farm to Market 2920<br>
+                            Spring, TX 77379
+                        </span>
+                    </li>
+
+                    <li class="flex items-center justify-center sm:justify-start gap-2">
+                        <i data-lucide="mail" class="h-4 w-4 text-orthodox-gold"></i>
+                        <span>info@satginternationalfoodfest.org</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Column 4 (Optional Balance Column) -->
+            <div class="flex flex-col items-center sm:items-start">
+                <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Festival Hours</h4>
+                <p class="text-sm">Friday: 4 PM – 10 PM</p>
+                <p class="text-sm">Saturday: 11 AM – 10 PM</p>
+            
+            </div>
+
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="mt-12 pt-6 border-t border-stone-600 text-center text-sm">
+            <p>&copy; 2026 St. Anthony the Great Orthodox Christian Church. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+    
+            <script>
+        lucide.createIcons();
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+
+</body>
+</html>
