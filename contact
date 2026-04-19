@@ -51,7 +51,11 @@
                      alt="Food Festival Logo"
                      class="h-16 w-auto object-contain"
                      onerror="this.style.display='none'">
-            </a>
+                        <div class="hidden md:block">
+                        <h1 class="font-serif text-lg font-bold text-church-blue leading-tight">St. Anthony the Great</h1>
+                        <p class="text-xs text-gray-600">Orthodox Christian Church</p>
+                       </div>
+                    </a>
 
             <div class="hidden md:flex items-center space-x-8">
                 <a href="index.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Home</a>
