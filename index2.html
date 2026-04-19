@@ -45,11 +45,48 @@
             }
         }
     </script>
-    
-                  
-
-    
+        
     <style>
+
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.9rem;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.28);
+        }
+
+        .social-icon svg {
+            fill: #ffffff;
+        }
+
+        .social-lg {
+            width: 3.25rem;
+            height: 3.25rem;
+        }
+
+        .social-sm {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 0.65rem;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-facebook {
+            background: linear-gradient(180deg, #2fb3ff 0%, #1877f2 55%, #1157c8 100%);
+        }
+
+        .social-instagram {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 8%, #fd5949 45%, #d6249f 62%, #285aeb 90%);
+        }
+
     
         .gradient-hero {
             background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 50%, #D4AF37 100%);
@@ -93,10 +130,50 @@
         transition: none;
     }
 }
+.about-photo-carousel {
+    position: relative;
+}
+
+.about-carousel-track {
+    display: flex;
+    transition: transform 450ms ease;
+    will-change: transform;
+}
+
+.about-carousel-slide {
+    min-width: 100%;
+    flex: 0 0 100%;
+}
+
+.about-carousel-slide img {
+    width: 100%;
+    height: 384px;
+    object-fit: cover;
+}
+
+.about-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.about-carousel-btn.prev {
+    left: 0.75rem;
+}
+
+.about-carousel-btn.next {
+    right: 0.75rem;
+}
+
+@media (max-width: 768px) {
+    .about-carousel-slide img {
+        height: 330px;
+    }
+}
 
 
-
-        
+   
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-stone-50">
@@ -118,14 +195,11 @@
                 
                 <div class="hidden md:flex items-center space-x-8">
                 <a href="index.html" class="text-church-gold font-semibold border-b-2 border-church-gold">Home</a>
-                <a href="location.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">About</a>
+                <a href="about.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">About</a>
                 <a href="cuisines.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Cuisines</a>
                 <a href="schedule.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Schedule</a>                
                 <a href="contact.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Contact</a>
-                <a href="https://www.eventbrite.com/e/qigong-flow-for-the-2026-year-of-the-fire-horse-tickets-1981556014381?aff=ebdssbdestsearch"
-                   class="bg-church-gold text-white px-6 py-2 rounded-full font-medium hover:bg-yellow-700 transition-all shadow-md">
-                    Tickets
-                </a>
+
                 </div>
 
                 <button class="md:hidden p-2 rounded-lg hover:bg-gray-100" onclick="toggleMobileMenu()">
@@ -138,13 +212,13 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
             <div class="px-4 pt-2 pb-4 space-y-1">
                 <a href="index.html" class="block px-3 py-2 text-church-gold font-semibold bg-warm-cream rounded-md">Home</a>
-                <a href="location.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">About</a>
+                <a href="about.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">About</a>
                 <a href="cuisines.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Cuisines</a>
                 <a href="schedule.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Schedule</a>              
                 <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Contact</a>
-                <a href="https://www.eventbrite.com/e/qigong-flow-for-the-2026-year-of-the-fire-horse-tickets-1981556014381?aff=ebdssbdestsearch" 
+                <a href="" 
                    target="_blank"
-                   class="block px-3 py-2 text-church-gold font-semibold">Tickets</a>
+                 ></a>
             </div>
         </div>
     </nav>
@@ -157,13 +231,10 @@
          
            <div class="hero-scroll" aria-hidden="true">
             <div class="hero-scroll-track" id="hero-scroll-track">
-                <img src="metropolitan.jpg" class="hero-scroll-image" alt="">
-                <img src="metropolitangroup.jpg" class="hero-scroll-image" alt="">
-                <img src="cookingclass.webp" class="hero-scroll-image" alt="">
-                <img src="kidssermon.webp" class="hero-scroll-image" alt="">
-                <img src="metropolitanhall.jpg" class="hero-scroll-image" alt="">
-                <img src="groupphoto.jpeg" class="hero-scroll-image" alt="">
-                <img src="metropolitan.jpg" class="hero-scroll-image" alt="">
+                <img src="5_pic.jpg" class="hero-scroll-image" alt="">
+                <img src="3_pic.jpg" class="hero-scroll-image" alt="">
+                <img src="8_pic.jpg" class="hero-scroll-image" alt="">
+                <img src="10_pic.jpg" class="hero-scroll-image" alt="">
             </div>
         </div>
 
@@ -227,29 +298,19 @@
 
         </div>
 
-    <!-- Buttons -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 w-full max-w-3xl">
-
-    <div class="flex justify-center">
-        <a href="cuisines.html"
-           class="bg-white text-church-blue px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-100 transition-all transform hover:scale-105 shadow-xl">
-            Explore the Flavors
-        </a>
-    </div>
-
-    <div class="flex justify-center">
-        <a href="https://www.eventbrite.com/e/qigong-flow-for-the-2026-year-of-the-fire-horse-tickets-1981556014381?aff=ebdssbdestsearch"
-           target="_blank"
-           class="bg-church-gold text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-600 transition-all transform hover:scale-105 shadow-xl">
-            Buy Tickets
-        </a>
-    </div>
-
+ 
+<!-- Buttons -->
+<div class="flex justify-center mt-10 w-full max-w-3xl">
+    <a href="cuisines.html"
+       class="bg-white text-church-blue px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-100 transition-all transform hover:scale-105 shadow-xl">
+        Explore the Flavors
+    </a>
 </div>
-
-    </div>
-</div>      
-    </section>
+</div>
+</div>
+</div>
+</div>
+</section>    
 
 
        
@@ -257,39 +318,43 @@
 <section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid md:grid-cols-2 gap-12 items-center">
-      
-      <!-- LEFT SIDE (Text Content) -->
-      <div class="space-y-6">
-        <div class="inline-block bg-church-gold/10 text-church-gold px-4 py-1 rounded-full text-sm font-semibold tracking-wide">
-          ABOUT
-        </div>
 
-        <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900">
-          Who We Are
-        </h2>
-
-        <p class="text-lg text-gray-600 leading-relaxed">
-          St. Anthony the Great Orthodox Christian Church is a Pan-Orthodox Church that continues the same religious traditions and teachings of the Apostles as learned from Jesus Christ - love God and love your neighbor.
-        </p>
-
-        <p class="text-lg text-gray-600 leading-relaxed">
-          St. Anthony the Great began as an outreach program in 1982 extending from our mother parish, St. George who wanted to establish an Orthodox Christian Church in the Northwest Houston area. Initial meetings were held in a subdivision clubhouse and homes until a temporary place of worship was established in a shopping center suite on FM 1960. Worship then moved to a small property in 1987 after land was purchased by parishioners. In April of 2011, St. Anthony the Great moved to its current location and continues to seek ways to connect with the surrounding community.
-        </p>
-
-        <p class="text-lg text-gray-600 leading-relaxed">
-          We invite you to come and see who we are and have food and fun at our 1st Annual International Food Festival.
-        </p>
-      </div>
-
-      <!-- RIGHT SIDE (Image + Tag) -->
-      <div class="relative">
+      <!-- LEFT SIDE (Photo Carousel) -->
+      <div class="relative md:order-1">
         <div class="absolute -top-4 -left-4 w-full h-full bg-church-gold/20 rounded-2xl"></div>
+        <div class="relative rounded-2xl shadow-2xl overflow-hidden bg-white about-photo-carousel">
+          <button type="button"
+                  class="about-carousel-btn prev bg-white/90 hover:bg-white text-church-blue rounded-full p-2 shadow"
+                  id="about-carousel-prev"
+                  aria-label="Previous photo">
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          </button>
 
-        <img 
-          src="St+Anthony+bout+Pic%20(1).webp" 
-          alt="St. Anthony the Great Orthodox Christian Church"
-          class="relative rounded-2xl shadow-2xl w-full object-cover h-96"
-        >
+          <div class="about-carousel-track" id="about-carousel-track">
+            <div class="about-carousel-slide">
+              <img src="1_pic.webp" alt="Festival photo 1">
+            </div>
+            <div class="about-carousel-slide">
+              <img src="9_pic.jpg" alt="Festival photo 2">
+            </div>
+            <div class="about-carousel-slide">
+              <img src="6_pic.jpg" alt="Festival photo 3">
+            </div>
+          </div>
+
+          <button type="button"
+                  class="about-carousel-btn next bg-white/90 hover:bg-white text-church-blue rounded-full p-2 shadow"
+                  id="about-carousel-next"
+                  aria-label="Next photo">
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+
+          <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2" id="about-carousel-dots">
+            <button type="button" class="h-2.5 w-2.5 rounded-full bg-church-blue/90" aria-label="Show slide 1"></button>
+            <button type="button" class="h-2.5 w-2.5 rounded-full bg-white/80 border border-church-blue/40" aria-label="Show slide 2"></button>
+            <button type="button" class="h-2.5 w-2.5 rounded-full bg-white/80 border border-church-blue/40" aria-label="Show slide 3"></button>
+          </div>
+        </div>
 
         <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl">
           <div class="flex items-center space-x-3">
@@ -304,9 +369,43 @@
         </div>
       </div>
 
+      <!-- RIGHT SIDE (Text Content) -->
+      <div class="space-y-6 md:order-2">
+        <div class="inline-block bg-church-gold/10 text-church-gold px-4 py-1 rounded-full text-sm font-semibold tracking-wide">
+          ABOUT
+        </div>
+
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900">
+          Who We Are
+        </h2>
+
+        <p class="text-lg text-gray-600 leading-relaxed">
+          St. Anthony the Great Orthodox Christian Church is a Pan-Orthodox Church that continues the same religious traditions and teachings of the Apostles as learned from Jesus Christ - love God and love your neighbor.
+          <a href="about.html" class="font-semibold text-church-gold hover:text-yellow-600 transition">Read more</a>
+        </p>
+
+        <p class="text-lg text-gray-600">Follow us on</p>
+        <div class="mt-3 flex items-center gap-4">
+          <a href="https://www.facebook.com/InternationalFoodFestival" target="_blank" rel="noopener noreferrer" class="social-icon social-facebook social-lg" aria-label="Follow us on Facebook">
+            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M13.5 8H15V5h-2c-2.2 0-3.5 1.3-3.5 3.7V11H7v3h2.5v7h3V14h2.2l.3-3H12.5V8.9c0-.6.3-.9 1-.9z"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/satginternationalfoodfestival/" target="_blank" rel="noopener noreferrer" class="social-icon social-instagram social-lg" aria-label="Follow us on Instagram">
+            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zM4 7.75A3.75 3.75 0 0 1 7.75 4h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5z"/>
+              <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
+              <circle cx="17.5" cy="6.5" r="1.25"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
+
+
 
        
        <!-- Ancient Faith Ministries Spotlight -->
@@ -321,7 +420,7 @@
             <!-- Ancient Faith Logo -->
             <div class="flex justify-center mb-6">
                 <a href="https://www.ancientfaith.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="afm-text-white.png" 
+                    <img src="1_logo.png" 
                          alt="Ancient Faith Ministries Logo" 
                          class="h-20 w-auto object-contain">
                 </a>
@@ -423,15 +522,15 @@
                 <p class="text-sm leading-relaxed mb-4 max-w-xs">
                     Celebrating Orthodox Christian tradition since 1982.
                 </p>
-                <div class="flex gap-4">
-                               <a href="https://www.facebook.com/InternationalFoodFestival"                        
-                                   target="_blank"
-                                   rel="noopener noreferrer" 
-                                   class="text-orthodox-gold hover:text-white transition">
-                                   <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <div class="flex gap-4">
+                    <a href="https://www.facebook.com/InternationalFoodFestival"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="text-orthodox-gold hover:text-white transition">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.099 4.388 23.094 10.125 24v-8.438H7.078v-3.49h3.047V9.41c0-3.017 1.792-4.686 4.533-4.686 1.313 0 2.687.236 2.687.236v2.963h-1.515c-1.493 0-1.958.931-1.958 1.887v2.265h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.099 24 12.073z"/>
-                        </svg></a>
-                 
+                        </svg>
+                    </a>
                  <a href="https://www.instagram.com/satginternationalfoodfestival/"
                        target="_blank"
                        rel="noopener noreferrer"
@@ -450,12 +549,11 @@
                 <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Quick Links</h4>
                 <ul class="space-y-2 text-sm">
                     <li><a href="index.html" class="hover:text-orthodox-gold transition">Home</a></li>
-                    <li><a href="location.html" class="hover:text-orthodox-gold transition">About</a></li>
-                    <li><a href="menu.html" class="hover:text-orthodox-gold transition">Cuisines</a></li>
+                    <li><a href="about.html" class="hover:text-orthodox-gold transition">About</a></li>
+                    <li><a href="cuisines.html" class="hover:text-orthodox-gold transition">Cuisines</a></li>
                     <li><a href="schedule.html" class="hover:text-orthodox-gold transition">Schedule</a></li>                    
                     <li><a href="contact.html" class="hover:text-orthodox-gold transition">Contact Us</a></li>
-                    <li><a href="https://www.eventbrite.com/e/qigong-flow-for-the-2026-year-of-the-fire-horse-tickets-1981556014381?aff=ebdssbdestsearch" 
-                          class="hover:text-orthodox-gold transition">Tickets</a></li>
+
                 </ul>
             </div>
 
@@ -470,10 +568,7 @@
                             Spring, TX 77379
                         </span>
                     </li>
-                    <li class="flex items-center justify-center sm:justify-start gap-2">
-                        <i data-lucide="phone" class="h-4 w-4 text-orthodox-gold"></i>
-                        <span>(281) 555-6000</span>
-                    </li>
+
                     <li class="flex items-center justify-center sm:justify-start gap-2">
                         <i data-lucide="mail" class="h-4 w-4 text-orthodox-gold"></i>
                         <span>info@satginternationalfoodfest.org</span>
@@ -497,6 +592,7 @@
         </div>
     </div>
 </footer>
+
 
 
                 <script>
@@ -563,6 +659,51 @@
     });
 
     queueNextSlide();
+})();
+
+
+(function setupAboutPhotoCarousel() {
+    const track = document.getElementById('about-carousel-track');
+    const prev = document.getElementById('about-carousel-prev');
+    const next = document.getElementById('about-carousel-next');
+    const dotWrap = document.getElementById('about-carousel-dots');
+    if (!track || !prev || !next || !dotWrap) return;
+
+    const slides = Array.from(track.children);
+    const dots = Array.from(dotWrap.children);
+    if (!slides.length) return;
+
+    let index = 0;
+
+    const update = () => {
+        track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
+        dots.forEach((dot, i) => {
+            const isActive = i === index;
+            dot.classList.toggle('bg-church-blue/90', isActive);
+            dot.classList.toggle('bg-white/80', !isActive);
+            dot.classList.toggle('border', !isActive);
+            dot.classList.toggle('border-church-blue/40', !isActive);
+        });
+    };
+
+    prev.addEventListener('click', () => {
+        index = (index - 1 + slides.length) % slides.length;
+        update();
+    });
+
+    next.addEventListener('click', () => {
+        index = (index + 1) % slides.length;
+        update();
+    });
+
+    dots.forEach((dot, dotIndex) => {
+        dot.addEventListener('click', () => {
+            index = dotIndex;
+            update();
+        });
+    });
+
+    update();
 })();
 </script>
 </body>
