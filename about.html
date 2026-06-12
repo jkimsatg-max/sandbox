@@ -40,28 +40,29 @@
 </head>
 <body class="font-sans text-gray-800 bg-stone-50">
 
-    <!-- Navigation -->
+       <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <a href="index.html" class="flex items-center -ml-2">
-                    <div class="flex items-center gap-1">
+                  <a href="index.html" class="flex items-center -ml-2 min-w-0 flex-shrink">
+                    <div class="flex items-center gap-1 min-w-0">
                     <img src="1_ifflogo.png"
-                         alt="Food Festival Logo 1"
-                         class="h-16 lg:h-18 w-auto object-contain"
-                         onerror="this.style.display='none'">
+                     alt="Food Festival Logo 1"
+                     class="h-14 sm:h-16 lg:h-20 w-auto object-contain">
                     <img src="2_ifflogo.png"
                          alt="Food Festival Logo 2"
-                         class="h-12 w-auto object-contain"
+                         class="hidden sm:block h-8 sm:h-10 w-auto object-contain flex-shrink-0"
                          onerror="this.style.display='none'">
                 </div>
                 </a>
+
                 
                 <div class="hidden md:flex items-center space-x-5 lg:space-x-8">
                 <a href="index.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Home</a>
                 <a href="about.html" class="text-church-gold font-semibold border-b-2 border-church-goldd">About</a>                
                 <a href="cuisines.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Cuisines</a>
                 <a href="schedule.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Schedule</a>
+                <a href="sponsorship.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Sponsorship</a>
                 <a href="contact.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Contact</a>
 
                 </div>
@@ -79,6 +80,7 @@
                 <a href="about.html" class="block px-3 py-2 text-church-gold font-semibold bg-warm-cream rounded-md">About</a>
                 <a href="cuisines.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Cuisines</a>
                 <a href="schedule.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Schedule</a>
+                <a href="sponsorship.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Sponsorship</a>
                 <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Contact</a>
 
             </div>
@@ -170,22 +172,33 @@
                 </div>
             </div>
 
-            <!-- Event Date & Time Card -->
-            <div class="bg-stone-50 rounded-2xl p-8 shadow-lg">
-                <div class="flex items-center mb-6">
-                    <div class="bg-church-red p-3 rounded-full mr-4">
-                        <i data-lucide="calendar-days" class="w-6 h-6 text-white"></i>
+      <!-- Accessibility -->
+                <div class="bg-stone-50 rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-purple-600 p-3 rounded-full mr-4">
+                            <i data-lucide="accessibility" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h2 class="font-serif text-2xl font-bold text-gray-900">Accessibility</h2>
                     </div>
-                    <h2 class="font-serif text-2xl font-bold text-gray-900">Dates &amp; Times</h2>
-                </div>
-                <div class="space-y-4 text-gray-700">
-                    <div>
-                        <p class="font-semibold">Friday, October 9, 2026</p>
-                        <p>4:00 PM – 10:00 PM</p>
-                    </div>
-                    <div>
-                        <p class="font-semibold">Saturday, October 10, 2026</p>
-                        <p>11:00 AM – 10:00 PM</p>
+                    <div class="space-y-3 text-gray-700">
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-2 mt-0.5"></i>
+                                <span>Wheelchair accessible entrances</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-2 mt-0.5"></i>
+                                <span>ADA-accessible restrooms</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-2 mt-0.5"></i>
+                                <span>Designated accessible seating areas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-2 mt-0.5"></i>
+                                <span>Service animals permitted</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -230,36 +243,7 @@
                 </div>
 
  
-             <!-- Accessibility -->
-                <div class="bg-stone-50 rounded-2xl p-8 shadow-lg">
-                    <div class="flex items-center mb-6">
-                        <div class="bg-purple-600 p-3 rounded-full mr-4">
-                            <i data-lucide="accessibility" class="w-6 h-6 text-white"></i>
-                        </div>
-                        <h2 class="font-serif text-2xl font-bold text-gray-900">Accessibility</h2>
-                    </div>
-                    <div class="space-y-3 text-gray-700">
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-2 mt-0.5"></i>
-                                <span>Wheelchair accessible entrances</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-2 mt-0.5"></i>
-                                <span>ADA-accessible restrooms</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-2 mt-0.5"></i>
-                                <span>Designated accessible seating areas</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-2 mt-0.5"></i>
-                                <span>Service animals permitted</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+       
 
          <!-- Centered Map Card -->
 <section class="py-20 bg-white">
@@ -425,7 +409,8 @@ will be available outdoors for shade.</p>
                     <li><a href="index.html" class="hover:text-orthodox-gold transition">Home</a></li>
                     <li><a href="about.html" class="hover:text-orthodox-gold transition">About</a></li>
                     <li><a href="cuisines.html" class="hover:text-orthodox-gold transition">Cuisines</a></li>
-                    <li><a href="schedule.html" class="hover:text-orthodox-gold transition">Schedule</a></li>                    
+                    <li><a href="schedule.html" class="hover:text-orthodox-gold transition">Schedule</a></li>
+                    <li><a href="sponsorship.html" class="hover:text-orthodox-gold transition">Sponsorship</a></li>  
                     <li><a href="contact.html" class="hover:text-orthodox-gold transition">Contact Us</a></li>
 
                 </ul>
