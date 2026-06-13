@@ -47,8 +47,9 @@
                   <a href="index.html" class="flex items-center -ml-2 min-w-0 flex-shrink">
                     <div class="flex items-center gap-1 min-w-0">
                     <img src="1_ifflogo.png"
-                     alt="Food Festival Logo 1"
-                     class="h-14 sm:h-16 lg:h-20 w-auto object-contain">
+                         alt="Food Festival Logo 1"
+                         class="h-14 sm:h-16 lg:h-20 w-auto object-contain"
+                         onerror="this.style.display='none'">
                     <img src="2_ifflogo.png"
                          alt="Food Festival Logo 2"
                          class="hidden sm:block h-8 sm:h-10 w-auto object-contain flex-shrink-0"
@@ -97,11 +98,9 @@
 
 
     <!-- International Food Festival About Section -->
-    <section class="py-20 bg-stone-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-1 gap-12 items-center">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="space-y-6">
+<section class="py-20 bg-stone-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="space-y-6">
 
                     <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900">International Food Festival</h2>
                     <p class="text-lg text-gray-600 leading-relaxed">
@@ -112,16 +111,17 @@
                     </p>
 
         </div>
-
     </div>
  </section>
 
  <!-- Location Content -->
 <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
+     
         <!-- Address Card --> 
         <div class="grid md:grid-cols-2 gap-12 mb-16">
+        
+        
             
             <div class="bg-stone-50 rounded-2xl p-8 shadow-lg">
                 <div class="flex items-center mb-6">
@@ -214,7 +214,8 @@
     </div>
 
 </div>
-</section>             
+     </div>
+</section>         
  
        
 
@@ -250,6 +251,7 @@
             <div class="flex flex-wrap justify-center gap-4 mt-8">
                 <a href="https://www.google.com/maps/dir/?api=1&destination=7202+Farm+to+Market+2920,+Spring,+TX+77379"
                    target="_blank"
+                    rel="noopener noreferrer"
                    class="inline-flex items-center px-6 py-3 bg-church-blue text-white rounded-lg hover:bg-church-gold transition shadow-md">
                     <i data-lucide="navigation" class="w-4 h-4 mr-2"></i>
                     Get Directions
@@ -281,9 +283,10 @@
 </script>
 
  <!-- FAQ Section -->
-          <div class="mt-16 mb-20 border-t-4 border-church-gold pt-12">
+         <section class="py-20 bg-stone-50 border-t-4 border-church-gold">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="font-serif text-2xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
-            <div class="grid md:grid-cols-2 gap-6">
+           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-white p-6 rounded-lg shadow border-l-4 border-church-gold">
                     <h3 class="font-bold text-gray-900 mb-2">Is parking free?</h3>
                     <p class="text-sm text-gray-600">Yes! On‑site parking is available along Alvin A. Klein Drive. The primary church lot off FM 2920 is reserved and includes designated handicapped spaces.</p>
@@ -321,15 +324,11 @@
                     <p class="text-sm text-gray-600">Yes! Bring the whole family and enjoy a variety of fun activities for the kids at our Children&#39;s Village.</p>
                 </div>
 
-                       <div class="bg-white p-6 rounded-lg shadow border-l-4 border-church-gold">
-                    <h3 class="font-bold text-gray-900 mb-2">When are church tours available?</h3>
-                    <p class="text-sm text-gray-600"> Church tours will be available on Saturday.</p>
-                </div>
-                
+
             </div>
         </div>
     </div>
-
+</section>
         
 <!-- Footer -->
 <footer class="bg-church-blue text-white pt-16 pb-8">
