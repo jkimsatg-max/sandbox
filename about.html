@@ -59,7 +59,7 @@
                 
                 <div class="hidden md:flex items-center space-x-5 lg:space-x-8">
                 <a href="index.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Home</a>
-                <a href="about.html" class="text-church-gold font-semibold border-b-2 border-church-goldd">About</a>                
+                <a href="about.html" class="text-church-gold font-semibold border-b-2 border-church-gold">About</a>                
                 <a href="cuisines.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Cuisines</a>
                 <a href="schedule.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Schedule</a>
                 <a href="sponsorship.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Sponsorship</a>
@@ -100,10 +100,8 @@
     <section class="py-20 bg-stone-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-1 gap-12 items-center">
-                <div class="relative order-1">
-
-                </div>
-                <div class="space-y-6 order-2">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="space-y-6">
 
                     <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900">International Food Festival</h2>
                     <p class="text-lg text-gray-600 leading-relaxed">
@@ -116,14 +114,15 @@
         </div>
 
     </div>
-</section>
+ </section>
 
  <!-- Location Content -->
 <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+      
+        <!-- Address Card --> 
         <div class="grid md:grid-cols-2 gap-12 mb-16">
-            <!-- Address Card -->
+            
             <div class="bg-stone-50 rounded-2xl p-8 shadow-lg">
                 <div class="flex items-center mb-6">
                     <div class="bg-church-gold p-3 rounded-full mr-4">
@@ -174,47 +173,48 @@
                         </ul>
                     </div>
                 </div>
+            
+<!-- Parking + Payment Methods Row -->
+<div class="grid md:grid-cols-2 gap-12 mb-16">
+
+    <!-- Parking Card -->
+    <div class="bg-stone-50 rounded-2xl p-8 shadow-lg">
+        <div class="flex items-center mb-6">
+            <div class="bg-church-blue p-3 rounded-full mr-4">
+                <i data-lucide="car" class="w-6 h-6 text-white"></i>
             </div>
+            <h2 class="font-serif text-2xl font-bold text-gray-900">Parking</h2>
+        </div>
+        <div class="space-y-3 text-gray-700">
+            <p><strong>Free parking available:</strong></p>
+            <ul class="space-y-2 ml-4 list-disc">
+                <li>Main church parking lot</li>
+                <li>Handicap accessible spaces near entrance</li>
+            </ul>
+        </div>
+    </div>
 
-  
-                <!-- Parking Card -->
-                <div class="bg-stone-50 rounded-2xl p-8 shadow-lg">
-                    <div class="flex items-center mb-6">
-                        <div class="bg-church-blue p-3 rounded-full mr-4">
-                            <i data-lucide="car" class="w-6 h-6 text-white"></i>
-                        </div>
-                        <h2 class="font-serif text-2xl font-bold text-gray-900">Parking</h2>
-                    </div>
-                    <div class="space-y-3 text-gray-700">
-                        <p><strong>Free parking available:</strong></p>
-                        <ul class="space-y-2 ml-4 list-disc">
-                            <li>Main church parking lot</li>
-                            <li>Handicap accessible spaces near entrance</li>
-                        </ul>
-                    
-                    </div>
-                </div>
+    <!-- Payment Methods -->
+    <div class="bg-stone-50 rounded-2xl p-8 shadow-lg">
+        <div class="flex items-center mb-6">
+            <div class="bg-green-600 p-3 rounded-full mr-4">
+                <i data-lucide="credit-card" class="w-6 h-6 text-white"></i>
+            </div>
+            <h2 class="font-serif text-2xl font-bold text-gray-900">Payment Methods</h2>
+        </div>
+        <div class="space-y-3 text-gray-700">
+            <p><strong>We accept:</strong></p>
+            <div class="flex flex-wrap gap-3 mt-3">
+                <span class="bg-white px-3 py-1 rounded-full text-sm border">Cash</span>
+                <span class="bg-white px-3 py-1 rounded-full text-sm border">Credit Cards</span>
+                <span class="bg-white px-3 py-1 rounded-full text-sm border">Debit Cards</span>
+                <span class="bg-white px-3 py-1 rounded-full text-sm border">Apple Pay</span>
+            </div>
+        </div>
+    </div>
 
-                <!-- Payment Methods -->
-                <div class="bg-stone-50 rounded-2xl p-8 shadow-lg">
-                    <div class="flex items-center mb-6">
-                        <div class="bg-green-600 p-3 rounded-full mr-4">
-                            <i data-lucide="credit-card" class="w-6 h-6 text-white"></i>
-                        </div>
-                        <h2 class="font-serif text-2xl font-bold text-gray-900">Payment Methods</h2>
-                    </div>
-                    <div class="space-y-3 text-gray-700">
-                        <p><strong>We accept:</strong></p>
-                        <div class="flex flex-wrap gap-3 mt-3">
-                            <span class="bg-white px-3 py-1 rounded-full text-sm border">Cash</span>
-                            <span class="bg-white px-3 py-1 rounded-full text-sm border">Credit Cards</span>
-                            <span class="bg-white px-3 py-1 rounded-full text-sm border">Debit Cards</span>
-                            <span class="bg-white px-3 py-1 rounded-full text-sm border">Apple Pay</span>
-                        </div>
-                     
-                    </div>
-                </div>
-
+</div>
+</section>             
  
        
 
@@ -281,53 +281,48 @@
 </script>
 
  <!-- FAQ Section -->
-          <div class="mt-16 mb-20 border-t-4 border-orthodox-gold pt-12">
-            <h2 class="font-cinzel text-2xl font-bold text-renaissance-brown mb-8 text-center">Frequently Asked Questions</h2>
+          <div class="mt-16 mb-20 border-t-4 border-church-gold pt-12">
+            <h2 class="font-serif text-2xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
-                    <h3 class="font-bold text-renaissance-brown mb-2">Is parking free?</h3>
-                    <p class="text-sm text-gray-600">Yes! Free parking is available on-site at the main church parking lot. Handicap accessible spaces near entrance.</p>
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-church-gold">
+                    <h3 class="font-bold text-gray-900 mb-2">Is parking free?</h3>
+                    <p class="text-sm text-gray-600">Yes! On‑site parking is available along Alvin A. Klein Drive. The primary church lot off FM 2920 is reserved and includes designated handicapped spaces.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
-                    <h3 class="font-bold text-renaissance-brown mb-2">Can I bring my dog?</h3>
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-church-gold">
+                    <h3 class="font-bold text-gray-900 mb-2">Can I bring my dog?</h3>
                     <p class="text-sm text-gray-600"> Service animals are permitted. Please leave pets at home due to food service areas and large crowds.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
-                    <h3 class="font-bold text-renaissance-brown mb-2">What payment methods are accepted?</h3>
-                    <p class="text-sm text-gray-600">We accept cash, credit cards, debit cards, and Apple Pay. </p>
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-church-gold">
+                    <h3 class="font-bold text-gray-900 mb-2">Is there a dress code?</h3>
+                    <p class="text-sm text-gray-600">Yes. Proper clothing and footwear are required, appropriate coverage must be maintained, and clothing with offensive language or imagery is not permitted. Guests should also choose attire suitable for church tours. </p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
-                    <h3 class="font-bold text-renaissance-brown mb-2">Are there vegetarian options?</h3>
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-church-gold">
+                    <h3 class="font-bold text-gray-900 mb-2">Are there vegetarian options?</h3>
                     <p class="text-sm text-gray-600">Absolutely! Many Orthodox fasting dishes are naturally vegan. Look for (V) markers on menu items.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
-                    <h3 class="font-bold text-renaissance-brown mb-2">Is the festival rain or shine?</h3>
-                    <p class="text-sm text-gray-600">Yes! Most vendors are under tents, and the church hall provides indoor space for some activities.</p>
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-church-gold">
+                    <h3 class="font-bold text-gray-900 mb-2">Is the festival rain or shine?</h3>
+                    <p class="text-sm text-gray-600">Yes! The festival includes both indoor and outdoor activities. Vendors and select church activities will be located inside the church hall, providing a comfortable indoor space.</p>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
-                    <h3 class="font-bold text-renaissance-brown mb-2">Is there a Lost and Found?</h3>
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-church-gold">
+                    <h3 class="font-bold text-gray-900 mb-2">Is there a Lost and Found?</h3>
                     <p class="text-sm text-gray-600">Please email info@satginternationalfoodfest.org for any lost and found items.</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
-                    <h3 class="font-bold text-renaissance-brown mb-2">Is the festival indoors or outdoors?</h3>
-                    <p class="text-sm text-gray-600">The festival includes both indoor and outdoor activities. Church tours will take place inside the church. Tents
-will be available outdoors for shade.</p>
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-church-gold">
+                    <h3 class="font-bold text-gray-900 mb-2">Are handguns allowed on the property?</h3>
+                    <p class="text-sm text-gray-600">Firearms are prohibited on this property pursuant to Texas Penal Code §§ 30.06 and 30.07, which restrict both concealed carry and open carry.</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
-                    <h3 class="font-bold text-renaissance-brown mb-2">What are the festival hours?</h3>
-                    <p class="text-sm text-gray-600"> Friday: 4 PM - 10 PM and Saturday: 11 AM - 10 PM</p>
-                </div>
                 
-                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
-                    <h3 class="font-bold text-renaissance-brown mb-2">Is the festival family-friendly?</h3>
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-church-gold">
+                    <h3 class="font-bold text-gray-900 mb-2">Is the festival family-friendly?</h3>
                     <p class="text-sm text-gray-600">Yes! Bring the whole family and enjoy a variety of fun activities for the kids at our Children&#39;s Village.</p>
                 </div>
 
-                       <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
-                    <h3 class="font-bold text-renaissance-brown mb-2">When are church tours available?</h3>
+                       <div class="bg-white p-6 rounded-lg shadow border-l-4 border-church-gold">
+                    <h3 class="font-bold text-gray-900 mb-2">When are church tours available?</h3>
                     <p class="text-sm text-gray-600"> Church tours will be available on Saturday.</p>
                 </div>
                 
@@ -345,8 +340,8 @@ will be available outdoors for shade.</p>
             <!-- Column 1 -->
             <div class="flex flex-col items-center sm:items-start">
                 <div class="flex items-center gap-2 mb-4">
-                    <i data-lucide="church" class="h-6 w-6 text-orthodox-gold"></i>
-                    <span class="font-cinzel font-bold text-white text-lg">
+                    <i data-lucide="church" class="h-6 w-6 text-church-gold"></i>
+                    <span class="font-serif font-bold text-white text-lg">
                         SATG International Food Festival
                     </span>
                 </div>
@@ -357,7 +352,7 @@ will be available outdoors for shade.</p>
                                        <a href="https://www.facebook.com/InternationalFoodFestival"
                        target="_blank"
                        rel="noopener noreferrer"
-                       class="text-orthodox-gold hover:text-white transition">
+                       class="text-church-gold hover:text-white transition">
                         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.099 4.388 23.094 10.125 24v-8.438H7.078v-3.49h3.047V9.41c0-3.017 1.792-4.686 4.533-4.686 1.313 0 2.687.236 2.687.236v2.963h-1.515c-1.493 0-1.958.931-1.958 1.887v2.265h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.099 24 12.073z"/>
                         </svg>
@@ -365,7 +360,7 @@ will be available outdoors for shade.</p>
                  <a href="https://www.instagram.com/satginternationalfoodfestival/"
                        target="_blank"
                        rel="noopener noreferrer"
-                       class="text-orthodox-gold hover:text-white transition">
+                       class="text-church-gold hover:text-white transition">
                         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zM4 7.75A3.75 3.75 0 0 1 7.75 4h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5z"/>
                             <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
@@ -377,24 +372,24 @@ will be available outdoors for shade.</p>
 
             <!-- Column 2 -->
             <div>
-                <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Quick Links</h4>
+                <h4 class="font-serif font-bold text-white mb-4 text-lg">Quick Links</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="index.html" class="hover:text-orthodox-gold transition">Home</a></li>
-                    <li><a href="about.html" class="hover:text-orthodox-gold transition">About</a></li>
-                    <li><a href="cuisines.html" class="hover:text-orthodox-gold transition">Cuisines</a></li>
-                    <li><a href="schedule.html" class="hover:text-orthodox-gold transition">Schedule</a></li>
-                    <li><a href="sponsorship.html" class="hover:text-orthodox-gold transition">Sponsorship</a></li>  
-                    <li><a href="contact.html" class="hover:text-orthodox-gold transition">Contact Us</a></li>
+                    <li><a href="index.html" class="hover:text-church-gold transition">Home</a></li>
+                    <li><a href="about.html" class="hover:text-church-gold transition">About</a></li>
+                    <li><a href="cuisines.html" class="hover:text-church-gold transition">Cuisines</a></li>
+                    <li><a href="schedule.html" class="hover:text-church-gold transition">Schedule</a></li>
+                    <li><a href="sponsorship.html" class="hover:text-church-gold transition">Sponsorship</a></li>  
+                    <li><a href="contact.html" class="hover:text-church-gold transition">Contact Us</a></li>
 
                 </ul>
             </div>
 
             <!-- Column 3 -->
             <div>
-                <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Contact Info</h4>
+                <h4 class="font-serif font-bold text-white mb-4 text-lg">Contact Info</h4>
                 <ul class="space-y-3 text-sm">
                     <li class="flex items-start justify-center sm:justify-start gap-2">
-                        <i data-lucide="map-pin" class="h-4 w-4 mt-1 text-orthodox-gold"></i>
+                        <i data-lucide="map-pin" class="h-4 w-4 mt-1 text-church-gold"></i>
                         <span>
                             7202 Farm to Market 2920<br>
                             Spring, TX 77379
@@ -402,7 +397,7 @@ will be available outdoors for shade.</p>
                     </li>
 
                     <li class="flex items-center justify-center sm:justify-start gap-2">
-                        <i data-lucide="mail" class="h-4 w-4 text-orthodox-gold"></i>
+                        <i data-lucide="mail" class="h-4 w-4 text-church-gold"></i>
                         <span>info@satginternationalfoodfest.org</span>
                     </li>
                 </ul>
@@ -410,7 +405,7 @@ will be available outdoors for shade.</p>
 
             <!-- Column 4 (Optional Balance Column) -->
             <div class="flex flex-col items-center sm:items-start">
-                <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Festival Hours</h4>
+                <h4 class="font-serif font-bold text-white mb-4 text-lg">Festival Hours</h4>
                 <p class="text-sm">Friday: 4 PM – 10 PM</p>
                 <p class="text-sm">Saturday: 11 AM – 10 PM</p>
             
