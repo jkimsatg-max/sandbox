@@ -131,23 +131,23 @@
     }
 }
 .about-photo-carousel {
-    position: relative;
+    min-height: 650px;
 }
 
 .about-carousel-track {
     display: flex;
-    transition: transform 450ms ease;
-    will-change: transform;
+    height: 100%;
+    transition: transform 0.5s ease;
 }
 
 .about-carousel-slide {
     min-width: 100%;
-    flex: 0 0 100%;
+    height: 100%;
 }
 
 .about-carousel-slide img {
     width: 100%;
-    height: 384px;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -328,7 +328,7 @@
       <!-- LEFT SIDE (Photo Carousel) -->
       <div class="relative md:order-1">
         <div class="absolute -top-4 -left-4 w-full h-full bg-church-gold/20 rounded-2xl"></div>
-        <div class="relative rounded-2xl shadow-2xl overflow-hidden bg-white about-photo-carousel">
+        <div class="relative rounded-2xl shadow-2xl overflow-hidden bg-white about-photo-carousel h-[650px] lg:h-[700px]">
           <button type="button"
                   class="about-carousel-btn prev bg-white/90 hover:bg-white text-church-blue rounded-full p-2 shadow"
                   id="about-carousel-prev"
@@ -338,13 +338,18 @@
 
           <div class="about-carousel-track" id="about-carousel-track">
             <div class="about-carousel-slide">
-              <img src="1_pic.webp" alt="Festival photo 1">
+              <img src="1_pic.webp" alt="Festival photo 1"
+                class="w-full h-full object-cover">
             </div>
             <div class="about-carousel-slide">
-              <img src="9_pic.jpg" alt="Festival photo 2">
+              <img src="9_pic.jpg" 
+                  alt="Festival photo 2"
+                  class="w-full h-full object-cover">
             </div>
             <div class="about-carousel-slide">
-              <img src="6_pic.jpg" alt="Festival photo 3">
+              <img src="6_pic.jpg" 
+                  alt="Festival photo 3"
+                  class="w-full h-full object-cover">
             </div>
           </div>
 
