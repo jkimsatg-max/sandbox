@@ -42,29 +42,29 @@
 
 <body class="font-sans text-gray-800 bg-stone-50">
 
-<!-- Navigation -->
-<nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
-
-            <a href="index.html" class="flex items-center -ml-2">
-                <div class="flex items-center gap-1">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                  <a href="index.html" class="flex items-center -ml-2 min-w-0 flex-shrink">
+                    <div class="flex items-center gap-1 min-w-0">
                     <img src="1_ifflogo.png"
                          alt="Food Festival Logo 1"
-                         class="h-16 lg:h-18 w-auto object-contain"
+                         class="h-14 sm:h-16 lg:h-20 w-auto object-contain flex-shrink-0"
                          onerror="this.style.display='none'">
                     <img src="2_ifflogo.png"
                          alt="Food Festival Logo 2"
-                         class="h-12 w-auto object-contain"
+                         class="hidden sm:block h-8 sm:h-10 w-auto object-contain flex-shrink-0"
                          onerror="this.style.display='none'">
                 </div>
-            </a>
+                </a>
 
             <div class="hidden md:flex items-center space-x-5 lg:space-x-8">
                 <a href="index.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Home</a>
                 <a href="about.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">About</a>
                 <a href="cuisines.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Cuisines</a>
                 <a href="schedule.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Schedule</a>
+                <a href="sponsorship.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Sponsorship</a>
                 <a href="contact.html" class="text-church-gold font-semibold border-b-2 border-church-gold">Contact</a>
 
             </div>
@@ -81,7 +81,8 @@
                 <a href="index.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Home</a>
                 <a href="about.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">About</a>
                 <a href="cuisines.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Cuisines</a>
-                <a href="schedule.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Schedule</a>            
+                <a href="schedule.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Schedule</a>
+                <a href="sponsorship.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Sponsorship</a>   
                 <a href="contact.html" class="block px-3 py-2 text-church-gold font-semibold bg-warm-cream rounded-md">Contact</a>
 
         </div>
@@ -233,6 +234,7 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
                     <li><a href="about.html" class="hover:text-orthodox-gold transition">About</a></li>
                     <li><a href="cuisines.html" class="hover:text-orthodox-gold transition">Cuisines</a></li>
                     <li><a href="schedule.html" class="hover:text-orthodox-gold transition">Schedule</a></li>
+                    <li><a href="sponsorship.html" class="hover:text-orthodox-gold transition">Sponsorship</a></li>
                     <li><a href="contact.html" class="hover:text-orthodox-gold transition">Contact Us</a></li>
 
                 </ul>
