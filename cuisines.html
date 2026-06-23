@@ -101,22 +101,28 @@
             transform-origin: center center;
         }
          
-      .festival-flag {
-            position: absolute;
-            left: 0%;
-            top: 0%;
-            width: clamp(48px, 6vw, 62px);
-            aspect-ratio: 4 / 3;
-            transform: translate(-50%, -50%);
-            background: #fff;
-            border-radius: 0.1rem;
-            border: 1px solid rgba(255,255,255,0.85);
-            box-shadow: none;
-            z-index: 2;
-            overflow: hidden;
-            display: block;
-            animation: counterSpin 28s linear infinite;
-        }
+.festival-flag {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: clamp(48px, 6vw, 62px);
+    aspect-ratio: 4 / 3;
+
+    /* FIX */
+    transform:
+        translate(-50%, -50%)
+        rotate(calc(-1 * var(--slot-angle)));
+
+    background: #fff;
+    border-radius: 0.1rem;
+    border: 1px solid rgba(255,255,255,0.85);
+    box-shadow: none;
+    z-index: 2;
+    overflow: hidden;
+    display: block;
+
+    animation: counterSpin 28s linear infinite;
+}
 
         .festival-flag img {
             width: 100%;
@@ -130,10 +136,21 @@
             to { transform: rotate(360deg); }
         }
 
-        @keyframes counterSpin {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(-360deg); }
-        }
+@keyframes counterSpin {
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(calc(-1 * var(--slot-angle)))
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(calc(-1 * var(--slot-angle)))
+            rotate(-360deg);
+    }
+}
 
         @media (prefers-reduced-motion: reduce) {
             .festival-ring,
@@ -171,11 +188,11 @@
                     <div class="flex items-center gap-1 min-w-0">
                     <img src="1_ifflogo.png"
                          alt="Food Festival Logo 1"
-                         class="h-14 sm:h-16 lg:h-18 w-auto object-contain flex-shrink-0"
+                         class="h-14 sm:h-16 lg:h-20 w-auto object-contain flex-shrink-0"
                          onerror="this.style.display='none'">
                     <img src="2_ifflogo.png"
                          alt="Food Festival Logo 2"
-                         class="hidden sm:block h-10 sm:h-12 w-auto object-contain flex-shrink-0"
+                         class="hidden sm:block h-8 sm:h-10 w-auto object-contain flex-shrink-0"
                          onerror="this.style.display='none'">
                 </div>
                 </a>
@@ -186,6 +203,7 @@
                     <a href="about.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">About</a>                    
                     <a href="cuisines.html" class="text-church-gold font-semibold border-b-2 border-church-gold">Cuisines</a>
                     <a href="schedule.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Schedule</a>
+                    <a href="sponsorship.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Sponsorship</a>
                     <a href="contact.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Contact</a>
 
                 </div>
@@ -203,6 +221,7 @@
                 <a href="about.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">About</a>
                 <a href="cuisines.html" class="block px-3 py-2 text-church-gold font-semibold bg-warm-cream rounded-md">Cuisines</a>
                 <a href="schedule.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Schedule</a>
+                <a href="sponsorship.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Sponsorship</a>
                 <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Contact</a>
 
             </div>
@@ -229,9 +248,8 @@
             <!-- Globe in center -->
             <div class="festival-globe">
                 <img
-            src="11_globe.png"
-            alt="Globe showing world map"
-        >
+                      src="11_globe.png"
+                    alt="Globe showing world map"
                 >
             </div>
         </div>
@@ -325,6 +343,7 @@
                     <li><a href="about.html" class="hover:text-orthodox-gold transition">About</a></li>
                     <li><a href="cuisines.html" class="hover:text-orthodox-gold transition">Cuisines</a></li>
                     <li><a href="schedule.html" class="hover:text-orthodox-gold transition">Schedule</a></li>
+                    <li><a href="sponsorship.html" class="hover:text-orthodox-gold transition">Sponsorship</a></li>
                     <li><a href="contact.html" class="hover:text-orthodox-gold transition">Contact Us</a></li>
   
                 </ul>
@@ -386,8 +405,7 @@
         });
     </script>
 
-</body>
-</html>
+
 
     
 
@@ -417,27 +435,34 @@
                 { code: 'us', name: 'United States' },
                 { code: 'ph', name: 'Philippines' },
                 { code: 'gr', name: 'Greece' },
-                { code: 'fr', name: 'France' },
+                { code: 'br', name: 'Brazil' },
                 { code: 'it', name: 'Italy' },
                 { code: 'ps', name: 'Palestine' },
-                { code: 'es', name: 'Spain' },
-                { code: 'pt', name: 'Portugal' },
-                { code: 'ch', name: 'Switzerland' },
+                { code: 'co', name: 'Colombia' },
+                { code: 'cm', name: 'Cameroon' },
+                { code: 'dk', name: 'Denmark' },
                 { code: 'ru', name: 'Russia' },
                 { code: 'no', name: 'Norway' },
-                { code: 'fi', name: 'Finland' },
+                { code: 'gt', name: 'Guatemala' },
                 { code: 'ca', name: 'Canada' },
                 { code: 'mx', name: 'Mexico' },
                 { code: 'ua', name: 'Ukraine' },
                 { code: 'ar', name: 'Argentina' },
-                { code: 'eg', name: 'Egypt' },
+                { code: 'sv', name: 'El Salvador' },
                 { code: 'lb', name: 'Lebanon' },
                 { code: 'et', name: 'Ethiopia' },
                 { code: 'in', name: 'India' },
                 { code: 'jp', name: 'Japan' },
                 { code: 'kr', name: 'South Korea' },
                 { code: 'cn', name: 'China' },
-                { code: 'au', name: 'Australia' }
+                { code: 'au', name: 'Australia' },
+                { code: 'ir', name: 'Iran' },
+                { code: 'jo', name: 'Jordan' },
+                { code: 'pa', name: 'Panama' },
+                { code: 'ro', name: 'Romania' },
+                { code: 'rs', name: 'Serbia' },
+                { code: 'sy', name: 'Syria' },
+                { code: 've', name: 'Venezuela' }
             ];
 
 
