@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendors - St. Anthony the Great Orthodox Christian Church International Food Festival</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'church-gold': '#C9A961',
+                        'church-blue': '#1E3A8A',
+                        'church-red': '#9B2C2C',
+                        'warm-cream': '#FEF3C7',
+                        'deep-amber': '#92400E',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .gradient-header {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-stone-50">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-[100rem] mx-auto px-2 sm:px-3 lg:px-4">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center -ml-2 min-w-0 flex-shrink">
+                    <div class="flex items-center gap-1 min-w-0">
+                        <img src="1_ifflogo.png" alt="Food Festival Logo 1" class="h-14 sm:h-16 lg:h-20 w-auto object-contain flex-shrink-0" onerror="this.style.display='none'">
+                        <img src="2_ifflogo.png" alt="Food Festival Logo 2" class="hidden sm:block h-8 sm:h-10 w-auto object-contain flex-shrink-0" onerror="this.style.display='none'">
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-3 lg:space-x-5">
+                    <a href="index.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">About</a>
+                    <a href="cuisines.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Cuisines</a>
+                    <a href="schedule.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Schedule</a>
+                    <a href="sponsorship.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Sponsorship</a>
+                    <a href="vendors.html" class="text-church-gold font-semibold border-b-2 border-church-gold">Vendors</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Contact</a>
+                </div>
+
+                <button class="md:hidden p-2 rounded-lg hover:bg-gray-100" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-6 h-6 text-church-blue"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">About</a>
+                <a href="cuisines.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Cuisines</a>
+                <a href="schedule.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Schedule</a>
+                <a href="sponsorship.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Sponsorship</a>
+                <a href="vendors.html" class="block px-3 py-2 text-church-gold font-semibold bg-warm-cream rounded-md">Vendors</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="pt-28 pb-10 gradient-header">
+        <div class="max-w-[100rem] mx-auto px-2 sm:px-3 lg:px-4 text-center">
+            <h1 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Vendors</h1>
+            <p class="text-white/90 text-lg">2026 marketplace vendor application information</p>
+        </div>
+    </section>
+
+    <!-- Vendor Content -->
+    <section class="py-12 bg-white">
+        <div class="max-w-[100rem] mx-auto px-2 sm:px-3 lg:px-4">
+            <div class="max-w-4xl mx-auto bg-stone-50 rounded-2xl p-8 md:p-10 shadow-lg border border-gray-100">
+                <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                    <p>Thank you for your interest in participating in the 2026 St. Anthony the Great International Food Festival! We are excited to welcome vendors who help make this event a vibrant celebration of food, culture, community, and local businesses.</p>
+
+                    <p>We are especially interested in vendors who offer products that reflect and promote the Orthodox Christian faith, as well as artisans, authors, ministries, cultural organizations, and local businesses whose offerings align with the spirit of the festival.</p>
+
+                    <p>Please complete the application below by Friday, September 4, 2026 to be considered for participation. Space is limited, and applications will be reviewed to ensure a diverse and engaging festival experience for our guests.</p>
+
+                    <p>The vendor fee is $250 per booth space. Payment must be made in full to secure your spot, and vendor spaces will not be reserved until payment is received.</p>
+
+                    <p>Please review the Marketplace Vendor Guidelines <a href="https://drive.google.com/file/d/19ESeKHrn3Y3MD8CHoo0vo-Q0FhpWzYIn/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-church-blue font-semibold underline decoration-church-gold decoration-2 underline-offset-4 hover:text-church-gold">HERE</a>. Approved vendors will receive a Vendor Terms and Conditions Agreement, Marketplace Vendor Guidelines, and payment options. Additional setup and operational details will be provided closer to the event.</p>
+
+                    <p>If you have any questions, please contact us at <a href="mailto:info@satginternationalfoodfest.org" class="text-church-blue font-semibold underline decoration-church-gold decoration-2 underline-offset-4 hover:text-church-gold">info@satginternationalfoodfest.org</a>.</p>
+
+                    <p>We look forward to the opportunity to partner with you for a successful festival!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-church-blue text-white pt-16 pb-8">
+        <div class="max-w-[100rem] mx-auto px-4">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-left">
+                <div class="flex flex-col items-center sm:items-start">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i data-lucide="church" class="h-6 w-6 text-orthodox-gold"></i>
+                        <span class="font-cinzel font-bold text-white text-lg">SATG International Food Festival</span>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-4 max-w-xs">Celebrating Orthodox Christian tradition since 1982.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-orthodox-gold transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-orthodox-gold transition">About</a></li>
+                        <li><a href="cuisines.html" class="hover:text-orthodox-gold transition">Cuisines</a></li>
+                        <li><a href="schedule.html" class="hover:text-orthodox-gold transition">Schedule</a></li>
+                        <li><a href="sponsorship.html" class="hover:text-orthodox-gold transition">Sponsorship</a></li>
+                        <li><a href="vendors.html" class="hover:text-orthodox-gold transition">Vendors</a></li>
+                        <li><a href="contact.html" class="hover:text-orthodox-gold transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Contact Info</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start justify-center sm:justify-start gap-2">
+                            <i data-lucide="map-pin" class="h-4 w-4 mt-1 text-orthodox-gold"></i>
+                            <span>7202 Farm to Market 2920<br>Spring, TX 77379</span>
+                        </li>
+                        <li class="flex items-center justify-center sm:justify-start gap-2">
+                            <i data-lucide="mail" class="h-4 w-4 text-orthodox-gold"></i>
+                            <span>info@satginternationalfoodfest.org</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col items-center sm:items-start">
+                    <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Festival Hours</h4>
+                    <p class="text-sm">Friday: 4 PM - 10 PM</p>
+                    <p class="text-sm">Saturday: 11 AM - 10 PM</p>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6 border-t border-stone-600 text-center text-sm">
+                <p>&copy; 2026 St. Anthony the Great Orthodox Christian Church. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
