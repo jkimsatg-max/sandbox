@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule - St. Anthony the Great Orthodox Church International Food Festival</title>
+  <!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon_logo.png">
+<link rel="apple-touch-icon" href="favicon_logo.png">
+
+<!-- Link preview (text messages, Facebook, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="International Food Festival - St. Anthony the Great Orthodox Christian Church">
+<meta property="og:description" content="Come and See who we are and have food and fun at our 1st annual international food fest">
+<meta property="og:url" content="https://satginternationalfoodfest.org/">
+<meta property="og:image" content="https://satginternationalfoodfest.org/favicon_logo.png">
+<meta property="og:image:alt" content="St. Anthony International Food Festival logo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://satginternationalfoodfest.org/favicon_logo.png">   
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -87,6 +101,32 @@
         @media (max-width: 768px) {
             .timeline-line {
                 left: 30px;
+            }
+        }
+
+          /* Schedule images */
+        .schedule-wrap {
+            width: 100%;
+            max-width: 56rem;
+            margin-left: auto;
+            margin-right: auto;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .schedule-img {
+            display: block;
+            width: 100%;
+            height: auto;
+            min-width: 640px;
+            margin: 0 auto;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+        }
+
+        @media (min-width: 768px) {
+            .schedule-img {
+                min-width: 0;
             }
         }
     </style>
@@ -239,9 +279,24 @@
 <section class="py-16 bg-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-        <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-        Celebrate the diverse cultures of our regions and parish. 
-        </h2>
+        <!-- Schedule Images (stacked, centered) -->
+        <div class="flex flex-col items-center gap-8 mb-12">
+
+            <div class="schedule-wrap">
+                <img src="schedule_1.png"
+                     alt="Saturday, October 10 festival schedule, 11:00 AM to 10:00 PM"
+                     class="schedule-img"
+                     loading="lazy">
+            </div>
+
+            <div class="schedule-wrap">
+                <img src="schedule_2.png"
+                     alt="Friday, October 9 festival schedule, 4:00 PM to 10:00 PM"
+                     class="schedule-img"
+                     loading="lazy">
+            </div>
+
+        </div>
 
         <p class="text-lg text-gray-700 leading-relaxed mb-8">
             Follow us on
