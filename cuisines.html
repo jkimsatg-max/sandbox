@@ -474,7 +474,7 @@
     </section>
     <div class="gold-rule" aria-hidden="true"></div>
  
-    <!-- Food banners (each opens its N_menu.png image) -->
+   <!-- Food banners (each opens its N_menu.png image) -->
     <main class="banner-section py-14 sm:py-20">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -563,7 +563,7 @@
 
         </div>
     </main>
- 
+    
 
         <!-- Text and social icons below the ring -->
 <section class="py-16 bg-white">
@@ -695,12 +695,13 @@
 
     
 
-           <!-- Lightbox for enlarged banners -->
-    <dialog id="lightbox" aria-label="Enlarged banner">
+  <!-- Lightbox that shows the menu matching the clicked banner -->
+    <dialog id="lightbox" aria-label="Menu">
         <div class="lightbox-inner" id="lightbox-backdrop">
             <img id="lightbox-img" src="" alt="">
         </div>
-        <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close enlarged banner">
+        <div class="lightbox-caption" id="lightbox-caption" aria-hidden="true"></div>
+        <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close menu">
             <i data-lucide="x" class="w-5 h-5"></i>
         </button>
     </dialog>
@@ -741,10 +742,11 @@
             items.forEach(el => io.observe(el));
         })();
  
-        /* Lightbox */
+        /* Lightbox: clicking a banner opens its matching N_menu.png */
         (function setupLightbox() {
             const dialog = document.getElementById('lightbox');
             const bigImg = document.getElementById('lightbox-img');
+            const caption = document.getElementById('lightbox-caption');
             const closeBtn = document.getElementById('lightbox-close');
             const backdrop = document.getElementById('lightbox-backdrop');
             if (!dialog || typeof dialog.showModal !== 'function') return;
@@ -753,13 +755,27 @@
  
             document.querySelectorAll('.banner-card').forEach(card => {
                 card.addEventListener('click', () => {
-                    const img = card.querySelector('img');
-                    bigImg.src = img.currentSrc || img.src;
-                    bigImg.alt = img.alt;
+                    const menuFile = card.dataset.menu;   // e.g. "1_menu.png"
+                    const name = card.dataset.name || 'Menu';
+                    if (!menuFile) return;
+
+                    bigImg.classList.remove('zoomed');
+                    bigImg.src = menuFile;
+                    bigImg.alt = 'Menu for ' + name;
+                    caption.textContent = name;
                     opener = card;
                     dialog.showModal();
+                    dialog.querySelector('.lightbox-inner').scrollTop = 0;
                     closeBtn.focus();
                 });
+            });
+
+            /* Tap the menu to zoom to full width (scroll to read) and tap again to fit the screen */
+            bigImg.addEventListener('click', () => {
+                bigImg.classList.toggle('zoomed');
+                if (!bigImg.classList.contains('zoomed')) {
+                    dialog.querySelector('.lightbox-inner').scrollTop = 0;
+                }
             });
  
             function close() {
@@ -770,7 +786,8 @@
                 if (e.target === backdrop) close();
             });
             dialog.addEventListener('close', () => {
-                bigImg.src = '';
+                bigImg.removeAttribute('src');
+                bigImg.classList.remove('zoomed');
                 if (opener) opener.focus();
             });
         })();
