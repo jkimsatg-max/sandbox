@@ -572,8 +572,8 @@
                     <li><a href="index.html" class="hover:text-orthodox-gold transition">Home</a></li>
                     <li><a href="about.html" class="hover:text-orthodox-gold transition">About</a></li>
                     <li><a href="cuisines.html" class="hover:text-orthodox-gold transition">Cuisines</a></li>
-                    <li><a href="schedule.html" class="hover:text-orthodox-gold transition">Schedule</a></li>    
-                    <li><a href="sponsorship.html" class="hover:text-orthodox-gold transition">Sponsorship</a></li>
+                    <li><a href="schedule.html" class="hover:text-orthodox-gold transition">Schedule</a></li>
+                    <li><a href="sponsorship.html" class="hover:text-orthodox-gold transition">Sponsorship</a></li>  
                     <li><a href="vendors.html" class="hover:text-orthodox-gold transition">Vendors</a></li>
                     <li><a href="contact.html" class="hover:text-orthodox-gold transition">Contact Us</a></li>
 
@@ -615,8 +615,10 @@
         </div>
     </div>
 </footer>
-    
-            <script>
+
+
+
+                <script>
         lucide.createIcons();
         
         function toggleMobileMenu() {
@@ -631,8 +633,98 @@
             } else {
                 navbar.classList.remove('shadow-md');
             }
-        });
-    </script>
+        });   
 
+// Hero Parallax Background                    
+(function setupHeroImageSlider() {
+    const track = document.getElementById('hero-scroll-track');
+    if (!track) return;
+    
+const slides = track.querySelectorAll('.hero-scroll-image');
+const uniqueCount = slides.length;
+    if (uniqueCount <= 0) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        track.style.transform = 'translate3d(0, 0, 0)';        return;
+    }
+
+    
+        let index = 0;
+    let isTransitioning = false;
+    const lingerMs = 2600;
+    const moveMs = 1200;
+
+    const queueNextSlide = () => {
+        window.setTimeout(() => {
+            if (isTransitioning) return;
+            isTransitioning = true;
+            index += 1;
+            track.style.transitionDuration = `${moveMs}ms`;
+            track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
+        }, lingerMs);
+    };
+
+    
+track.addEventListener('transitionend', () => {
+    if (index >= uniqueCount) {
+        index = 0;
+        track.style.transitionDuration = '0ms';
+        track.style.transform = 'translate3d(0,0,0)';
+        track.offsetHeight;
+        track.style.transitionDuration = `${moveMs}ms`;
+    }
+
+    isTransitioning = false;
+    queueNextSlide();
+});
+
+    queueNextSlide();
+})();
+
+
+(function setupAboutPhotoCarousel() {
+    const track = document.getElementById('about-carousel-track');
+    const prev = document.getElementById('about-carousel-prev');
+    const next = document.getElementById('about-carousel-next');
+    const dotWrap = document.getElementById('about-carousel-dots');
+    if (!track || !prev || !next || !dotWrap) return;
+
+    const slides = Array.from(track.children);
+    const dots = Array.from(dotWrap.children);
+    if (!slides.length) return;
+
+    let index = 0;
+
+    const update = () => {
+        track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
+        dots.forEach((dot, i) => {
+            const isActive = i === index;
+            dot.classList.toggle('bg-church-blue/90', isActive);
+            dot.classList.toggle('bg-white/80', !isActive);
+            dot.classList.toggle('border', !isActive);
+            dot.classList.toggle('border-church-blue/40', !isActive);
+        });
+    };
+
+    prev.addEventListener('click', () => {
+        index = (index - 1 + slides.length) % slides.length;
+        update();
+    });
+
+    next.addEventListener('click', () => {
+        index = (index + 1) % slides.length;
+        update();
+    });
+
+    dots.forEach((dot, dotIndex) => {
+        dot.addEventListener('click', () => {
+            index = dotIndex;
+            update();
+        });
+    });
+
+    update();
+})();
+</script>
 </body>
 </html>
