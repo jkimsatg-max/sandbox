@@ -82,120 +82,228 @@
         background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
         }
 
-        .world-ring-wrap {
-            background: white;
-            padding: 3.5rem 1rem 4rem;
+        /* ---------- Header: soft gold rule + faint pattern ---------- */
+        .header-pattern {
+            position: relative;
+            overflow: hidden;
         }
-        .festival-globe-wrap {
-        --ring-size: min(90vw, 620px);
-        --globe-size: clamp(11rem, 40vw, 20rem);
-        --orbit-radius: calc((var(--ring-size) - clamp(48px, 6vw, 62px)) / 2 - 8px);
-        position: relative;
-        width: var(--ring-size);
-        aspect-ratio: 1;
-        margin: 0 auto;
-        display: grid;
-        place-items: center;
-        }
-
-        .festival-ring {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 9999px;
-        border: 8px solid transparent;
-        animation: festivalSpin 28s linear infinite;
-        box-shadow: none;
-        background: transparent;
-        }
-         
-        .festival-flag-slot {
+        .header-pattern::before {
+            content: "";
             position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: rotate(var(--slot-angle, 0deg)) translateX(var(--orbit-radius));
-            transform-origin: center center;
+            inset: 0;
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M24 4l4 20-4 20-4-20z M4 24l20-4 20 4-20 4z' fill='none' stroke='%23ffffff' stroke-opacity='0.12' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 48px 48px;
+            pointer-events: none;
         }
-         
-.festival-flag {
-    position: absolute;
-    left: 0%;
-    top: 0%;
-    width: clamp(48px, 6vw, 62px);
-    aspect-ratio: 4 / 3;
+        .header-pattern > * { position: relative; }
+        .gold-rule {
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #D4AF37 20%, #D4AF37 80%, transparent);
+        }
 
-    /* FIX */
-    transform:
-        translate(-50%, -50%)
-        rotate(calc(-1 * var(--slot-angle)));
+        /* ---------- Banner section ---------- */
+        .banner-section {
+            background-color: #fffdf7;
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='1.6' fill='%23D4AF37' fill-opacity='0.28'/%3E%3Cpath d='M32 14l3 15 15 3-15 3-3 15-3-15-15-3 15-3z' fill='none' stroke='%23D4AF37' stroke-opacity='0.12' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 64px 64px;
+        }
 
-    background: #fff;
-    border-radius: 0.1rem;
-    border: 1px solid rgba(255,255,255,0.85);
-    box-shadow: none;
-    z-index: 2;
-    overflow: hidden;
-    display: block;
+        /* Section title with flanking gold rules and an icon */
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .section-title::before,
+        .section-title::after {
+            content: "";
+            flex: 1 1 0;
+            max-width: 9rem;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #D4AF37);
+        }
+        .section-title::after {
+            background: linear-gradient(270deg, transparent, #D4AF37);
+        }
+        .section-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 9999px;
+            background: #1E3A8A;
+            color: #D4AF37;
+            box-shadow: 0 0 0 4px #fffdf7, 0 0 0 6px #D4AF37;
+            flex-shrink: 0;
+        }
 
-    animation: counterSpin 28s linear infinite;
-}
-
-        .festival-flag img {
+        /* A banner "sign" */
+        .banner-card {
+            display: block;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            padding: 0;
+            border: 0;
+            background: #fff;
+            border-radius: 1rem;
+            overflow: hidden;
+            cursor: zoom-in;
+            position: relative;
+            box-shadow:
+                0 0 0 1px rgba(212, 175, 55, 0.55),
+                0 0 0 6px #ffffff,
+                0 0 0 7px rgba(30, 58, 138, 0.18),
+                0 14px 30px rgba(30, 58, 138, 0.14);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .banner-card:hover,
+        .banner-card:focus-visible {
+            transform: translateY(-4px);
+            box-shadow:
+                0 0 0 1px #D4AF37,
+                0 0 0 6px #ffffff,
+                0 0 0 7px rgba(212, 175, 55, 0.7),
+                0 20px 38px rgba(30, 58, 138, 0.22);
+        }
+        .banner-card:focus-visible {
+            outline: 3px solid #1E3A8A;
+            outline-offset: 8px;
+        }
+        .banner-card img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .banner-card .zoom-hint {
+            position: absolute;
+            right: 0.6rem;
+            bottom: 0.6rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.3rem 0.65rem;
+            border-radius: 9999px;
+            background: rgba(30, 58, 138, 0.88);
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            opacity: 0;
+            transform: translateY(4px);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            pointer-events: none;
+        }
+        .banner-card:hover .zoom-hint,
+        .banner-card:focus-visible .zoom-hint {
+            opacity: 1;
+            transform: none;
+        }
+        /* Touch devices have no hover: keep the hint visible */
+        @media (hover: none) {
+            .banner-card .zoom-hint { opacity: 1; transform: none; }
+        }
+
+        /* Soft fade-in as banners scroll into view (only when JS is on) */
+        .js .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .js .reveal.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Little star divider between banners */
+        .star-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            color: #D4AF37;
+            padding: 0.25rem 0;
+        }
+        .star-divider span {
+            width: 0.35rem;
+            height: 0.35rem;
+            background: currentColor;
+            transform: rotate(45deg);
             display: block;
         }
-
-         @keyframes festivalSpin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .star-divider span:nth-child(2) {
+            width: 0.55rem;
+            height: 0.55rem;
         }
 
-@keyframes counterSpin {
-    from {
-        transform:
-            translate(-50%, -50%)
-            rotate(calc(-1 * var(--slot-angle)))
-            rotate(0deg);
-    }
-
-    to {
-        transform:
-            translate(-50%, -50%)
-            rotate(calc(-1 * var(--slot-angle)))
-            rotate(-360deg);
-    }
-}
+        /* Lightbox */
+        #lightbox {
+            padding: 0;
+            border: 0;
+            background: transparent;
+            max-width: 100vw;
+            max-height: 100vh;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #lightbox::backdrop {
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(3px);
+        }
+        .lightbox-inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .lightbox-inner img {
+            max-width: 100%;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            border-radius: 0.75rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            background: #fff;
+        }
+        .lightbox-close {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 9999px;
+            border: 2px solid #D4AF37;
+            background: #1E3A8A;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .lightbox-close:focus-visible {
+            outline: 3px solid #fff;
+            outline-offset: 3px;
+        }
 
         @media (prefers-reduced-motion: reduce) {
-            .festival-ring,
-            .festival-flag {
-                animation: none;
+            .banner-card,
+            .banner-card .zoom-hint,
+            .js .reveal {
+                transition: none;
             }
+            .js .reveal { opacity: 1; transform: none; }
+            .banner-card:hover, .banner-card:focus-visible { transform: none; }
         }
-
-   .festival-globe {
-    position: absolute;
-    width: var(--globe-size);
-    height: var(--globe-size);
-    border-radius: 9999px;
-    overflow: hidden;
-    z-index: 1;
-    box-shadow: 0 18px 38px rgba(0,0,0,0.25);
-}
-
-.festival-globe img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
     </style>
-   
 </head>
-<body class="font-sans text-gray-800 bg-stone-50">
+<body class="font-sans text-gray-800 bg-stone-50">       
+
 
     <!-- Navigation -->
 <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
