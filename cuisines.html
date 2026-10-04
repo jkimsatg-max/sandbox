@@ -328,6 +328,11 @@
             .js .reveal { opacity: 1; transform: none; }
             .banner-card:hover, .banner-card:focus-visible { transform: none; }
         }
+         .menu-scroll img[hidden],
+.menu-newtab[hidden],
+.menu-msg[hidden] {
+    display: none !important;
+}
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-stone-50">
@@ -488,50 +493,50 @@
                 <p class="text-gray-600 mt-3 max-w-2xl mx-auto">Look for these signs around the festival grounds. Tap a banner to see its menu.</p>
             </div>
  
-           <div class="space-y-8 sm:space-y-10">
+       <div class="space-y-8 sm:space-y-10">
 
-    <a href="1_menu.png" class="banner-card reveal" data-menu="1_menu.png" data-name="Serbian-American Ćevapi"
-       target="_blank" rel="noopener" aria-label="View menu: Serbian-American Ćevapi">
+    <button type="button" class="banner-card reveal" data-menu="1_menu.png" data-name="Serbian-American Ćevapi"
+            aria-haspopup="dialog" aria-label="View menu: Serbian-American Ćevapi">
         <img src="1_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
              alt="Serbian-American Ćevapi. Od srca! Prijatno! From the Heart. Serbian and American flags with a Serbian coat of arms.">
         <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-4 h-4"></i>View Menu</span>
-    </a>
+    </button>
 
     <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
 
-    <a href="2_menu.png" class="banner-card reveal" data-menu="2_menu.png" data-name="In Brisket We Trust"
-       target="_blank" rel="noopener" aria-label="View menu: In Brisket We Trust">
+    <button type="button" class="banner-card reveal" data-menu="2_menu.png" data-name="In Brisket We Trust"
+            aria-haspopup="dialog" aria-label="View menu: In Brisket We Trust">
         <img src="2_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
              alt="We came. We smoked. We conquered. In brisket we trust. No bull, just brisket. A banner styled like a vintage banknote with cattle characters.">
         <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-4 h-4"></i>View Menu</span>
-    </a>
+    </button>
 
     <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
 
-    <a href="3_menu.png" class="banner-card reveal" data-menu="3_menu.png" data-name="Wok &amp; Roll Noodle Cart"
-       target="_blank" rel="noopener" aria-label="View menu: Wok and Roll Noodle Cart">
+    <button type="button" class="banner-card reveal" data-menu="3_menu.png" data-name="Wok &amp; Roll Noodle Cart"
+            aria-haspopup="dialog" aria-label="View menu: Wok and Roll Noodle Cart">
         <img src="3_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
              alt="Wok and Roll Noodle Cart. Noodles, beats, good eats. A wok tossing noodles beside a rocker with a guitar.">
         <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-4 h-4"></i>View Menu</span>
-    </a>
+    </button>
 
     <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
 
-    <a href="4_menu.png" class="banner-card reveal" data-menu="4_menu.png" data-name="Carnaval de Sabores"
-       target="_blank" rel="noopener" aria-label="View menu: Carnaval de Sabores">
+    <button type="button" class="banner-card reveal" data-menu="4_menu.png" data-name="Carnaval de Sabores"
+            aria-haspopup="dialog" aria-label="View menu: Carnaval de Sabores">
         <img src="4_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
              alt="Carnaval de Sabores, a celebration of Latin American flavor. Colorful coastal scene with a guitarist and folk dancers.">
         <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-4 h-4"></i>View Menu</span>
-    </a>
+    </button>
 
     <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
 
-    <a href="5_menu.png" class="banner-card reveal" data-menu="5_menu.png" data-name="It's All Greek"
-       target="_blank" rel="noopener" aria-label="View menu: It's All Greek">
+    <button type="button" class="banner-card reveal" data-menu="5_menu.png" data-name="It's All Greek"
+            aria-haspopup="dialog" aria-label="View menu: It's All Greek">
         <img src="5_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
              alt="It's All Greek! Dancers in traditional Greek dress in front of whitewashed buildings with blue domes and pink flowers.">
         <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-4 h-4"></i>View Menu</span>
-    </a>
+    </button>
 </div>
             <!-- Drinks & sweets -->
             <div class="text-center mt-16 sm:mt-24 mb-10">
@@ -542,25 +547,24 @@
                 <p class="text-gray-600 mt-3 max-w-2xl mx-auto">Slow down, cool off, and stay awhile.</p>
             </div>
  
-           <div class="space-y-8 sm:space-y-10">
+         <div class="space-y-8 sm:space-y-10">
 
-    <a href="6_menu.png" class="banner-card reveal" data-menu="6_menu.png" data-name="The Oasis"
-       target="_blank" rel="noopener" aria-label="View menu: The Oasis">
+    <button type="button" class="banner-card reveal" data-menu="6_menu.png" data-name="The Oasis"
+            aria-haspopup="dialog" aria-label="View menu: The Oasis">
         <img src="6_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
              alt="The Oasis. Beer, wine, hookah, cigars. Sip. Smoke. Stay awhile. Lanterns, palms and a desert sunset.">
         <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-4 h-4"></i>View Menu</span>
-    </a>
+    </button>
 
     <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
 
-    <a href="7_menu.png" class="banner-card reveal" data-menu="7_menu.png" data-name="Sip &amp; Chill by Teen SOYO"
-       target="_blank" rel="noopener" aria-label="View menu: Sip and Chill by Teen SOYO">
+    <button type="button" class="banner-card reveal" data-menu="7_menu.png" data-name="Sip &amp; Chill by Teen SOYO"
+            aria-haspopup="dialog" aria-label="View menu: Sip and Chill by Teen SOYO">
         <img src="7_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
              alt="Sip and Chill by Teen SOYO. Cold sips, sweet treats. Come sip and see! Retro diner style with checkerboard borders.">
         <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-4 h-4"></i>View Menu</span>
-    </a>
+    </button>
 </div>
- 
         </div>
     </main>
 
@@ -709,69 +713,54 @@
         </button>
     </dialog>
  
-    <script>
-        document.documentElement.classList.add('js');
-        lucide.createIcons();
- 
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+   <script>
+    document.documentElement.classList.add('js');
+
+    function toggleMobileMenu() {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    window.addEventListener('scroll', function () {
+        const navbar = document.getElementById('navbar');
+        navbar.classList.toggle('shadow-md', window.scrollY > 50);
+    });
+
+    /* Fade banners in as they scroll into view */
+    (function setupReveal() {
+        const items = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window)) {
+            items.forEach(el => el.classList.add('is-visible'));
+            return;
         }
- 
-        window.addEventListener('scroll', function () {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-md');
-            } else {
-                navbar.classList.remove('shadow-md');
-            }
-        });
- 
-        /* Fade banners in as they scroll into view */
-        (function setupReveal() {
-            const items = document.querySelectorAll('.reveal');
-            if (!('IntersectionObserver' in window)) {
-                items.forEach(el => el.classList.add('is-visible'));
-                return;
-            }
-            const io = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        io.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.12 });
-            items.forEach(el => io.observe(el));
-        })();
- 
-        /* Menu viewer: each banner opens the image named in its data-menu
-           attribute (1_menu.png ... 7_menu.png). */
-/* Menu viewer: one click handler per banner. The "View Menu" hint lives
-   inside the banner, so clicking it bubbles to the same handler. */
-(function setupMenuViewer() {
-    const dialog   = document.getElementById('menu-dialog');
-    const title    = document.getElementById('menu-title');
-    const img      = document.getElementById('menu-img');
-    const msg      = document.getElementById('menu-msg');
-    const newTab   = document.getElementById('menu-newtab');
-    const closeBtn = document.getElementById('menu-close');
-    const backdrop = document.getElementById('menu-backdrop');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        items.forEach(el => io.observe(el));
+    })();
 
-    const hasDialog = dialog && typeof dialog.showModal === 'function';
-    let opener = null;
+    /* Menu viewer: each banner button carries data-menu="N_menu.png".
+       Buttons have no href, so a click can never navigate to a 404 page.
+       The "View Menu" hint is inside the button, so it triggers the same handler. */
+    (function setupMenuViewer() {
+        const dialog   = document.getElementById('menu-dialog');
+        const title    = document.getElementById('menu-title');
+        const img      = document.getElementById('menu-img');
+        const msg      = document.getElementById('menu-msg');
+        const newTab   = document.getElementById('menu-newtab');
+        const closeBtn = document.getElementById('menu-close');
+        const backdrop = document.getElementById('menu-backdrop');
 
-    document.querySelectorAll('.banner-card').forEach(card => {
-        card.addEventListener('click', (e) => {
-            // Use data-menu, falling back to the link's own href
-            const src  = card.dataset.menu || card.getAttribute('href');
+        let opener = null;
+
+        function openMenu(card) {
+            const src  = card.dataset.menu;
             const name = card.dataset.name || 'Menu';
-
-            // No <dialog> support: let the link open normally in a new tab
-            if (!hasDialog || !src) return;
-
-            // Stop the link from ALSO opening a new tab
-            e.preventDefault();
+            if (!src) return;
 
             opener = card;
             title.textContent = name + ' Menu';
@@ -787,28 +776,33 @@
             img.onerror = () => {
                 img.hidden = true;
                 msg.hidden = false;
+                console.warn('Menu image not found:', new URL(src, location.href).href);
             };
             img.alt = name + ' menu';
             img.src = src;
 
             dialog.showModal();
             closeBtn.focus();
+        }
+
+        document.querySelectorAll('.banner-card').forEach(card => {
+            card.addEventListener('click', () => openMenu(card));
         });
-    });
 
-    if (!hasDialog) return;
+        closeBtn.addEventListener('click', () => dialog.close());
+        backdrop.addEventListener('click', (e) => {
+            if (e.target === backdrop) dialog.close();
+        });
+        dialog.addEventListener('close', () => {
+            img.onload = img.onerror = null;
+            img.removeAttribute('src');
+            if (opener) opener.focus();
+        });
+    })();
 
-    closeBtn.addEventListener('click', () => dialog.close());
-    backdrop.addEventListener('click', (e) => {
-        if (e.target === backdrop) dialog.close();
-    });
-    dialog.addEventListener('close', () => {
-        img.onload = img.onerror = null;
-        img.removeAttribute('src');
-        if (opener) opener.focus();
-    });
-})();
-    </script>
+    /* Icons last, and guarded: if the Lucide CDN fails, everything above still works */
+    try { lucide.createIcons(); } catch (err) { console.warn('Lucide icons unavailable:', err); }
+</script>
  
 </body>
 </html>
