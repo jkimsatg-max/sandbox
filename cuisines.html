@@ -102,14 +102,14 @@
             background: linear-gradient(90deg, transparent, #D4AF37 20%, #D4AF37 80%, transparent);
         }
 
-        /* ---------- Banner section ---------- */
+           /* ---------- Banner section ---------- */
         .banner-section {
             background-color: #fffdf7;
             background-image:
                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='1.6' fill='%23D4AF37' fill-opacity='0.28'/%3E%3Cpath d='M32 14l3 15 15 3-15 3-3 15-3-15-15-3 15-3z' fill='none' stroke='%23D4AF37' stroke-opacity='0.12' stroke-width='1'/%3E%3C/svg%3E");
             background-size: 64px 64px;
         }
-
+ 
         /* Section title with flanking gold rules and an icon */
         .section-title {
             display: flex;
@@ -141,7 +141,7 @@
             box-shadow: 0 0 0 4px #fffdf7, 0 0 0 6px #D4AF37;
             flex-shrink: 0;
         }
-
+ 
         /* A banner "sign" */
         .banner-card {
             display: block;
@@ -151,7 +151,7 @@
             background: #fff;
             border-radius: 1rem;
             overflow: hidden;
-            cursor: zoom-in;
+            cursor: pointer;
             position: relative;
             box-shadow:
                 0 0 0 1px rgba(212, 175, 55, 0.55),
@@ -178,35 +178,36 @@
             width: 100%;
             height: auto;
         }
-        .banner-card .zoom-hint {
+        .banner-card .menu-hint {
             position: absolute;
             right: 0.6rem;
             bottom: 0.6rem;
             display: inline-flex;
             align-items: center;
             gap: 0.35rem;
-            padding: 0.3rem 0.65rem;
+            padding: 0.35rem 0.8rem;
             border-radius: 9999px;
-            background: rgba(30, 58, 138, 0.88);
+            background: rgba(30, 58, 138, 0.92);
+            border: 1px solid #D4AF37;
             color: #fff;
-            font-size: 0.72rem;
-            font-weight: 500;
+            font-size: 0.78rem;
+            font-weight: 600;
             letter-spacing: 0.02em;
             opacity: 0;
             transform: translateY(4px);
             transition: opacity 0.25s ease, transform 0.25s ease;
             pointer-events: none;
         }
-        .banner-card:hover .zoom-hint,
-        .banner-card:focus-visible .zoom-hint {
+        .banner-card:hover .menu-hint,
+        .banner-card:focus-visible .menu-hint {
             opacity: 1;
             transform: none;
         }
         /* Touch devices have no hover: keep the hint visible */
         @media (hover: none) {
-            .banner-card .zoom-hint { opacity: 1; transform: none; }
+            .banner-card .menu-hint { opacity: 1; transform: none; }
         }
-
+ 
         /* Soft fade-in as banners scroll into view (only when JS is on) */
         .js .reveal {
             opacity: 0;
@@ -217,7 +218,7 @@
             opacity: 1;
             transform: none;
         }
-
+ 
         /* Little star divider between banners */
         .star-divider {
             display: flex;
@@ -238,9 +239,9 @@
             width: 0.55rem;
             height: 0.55rem;
         }
-
-        /* Lightbox */
-        #lightbox {
+ 
+        /* ---------- Menu lightbox ---------- */
+        #menu-dialog {
             padding: 0;
             border: 0;
             background: transparent;
@@ -250,11 +251,11 @@
             height: 100%;
             overflow: hidden;
         }
-        #lightbox::backdrop {
-            background: rgba(15, 23, 42, 0.88);
+        #menu-dialog::backdrop {
+            background: rgba(15, 23, 42, 0.9);
             backdrop-filter: blur(3px);
         }
-     .menu-scroll {
+        .menu-scroll {
             width: 100%;
             height: 100%;
             overflow-y: auto;
@@ -329,8 +330,8 @@
         }
     </style>
 </head>
-<body class="font-sans text-gray-800 bg-stone-50"> 
-
+<body class="font-sans text-gray-800 bg-stone-50">
+ 
 
     <!-- Navigation -->
 <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
@@ -474,7 +475,7 @@
     </section>
     <div class="gold-rule" aria-hidden="true"></div>
  
-     <!-- Food banners (each opens its N_menu.png image via data-menu) -->
+    <!-- Food banners (each opens its N_menu.png image via data-menu) -->
     <main class="banner-section py-14 sm:py-20">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
  
@@ -695,12 +696,17 @@
 
     
 
-           <!-- Lightbox for enlarged banners -->
-    <dialog id="lightbox" aria-label="Enlarged banner">
-        <div class="lightbox-inner" id="lightbox-backdrop">
-            <img id="lightbox-img" src="" alt="">
+      <!-- Menu viewer -->
+    <dialog id="menu-dialog" aria-labelledby="menu-title">
+        <div class="menu-scroll" id="menu-backdrop">
+            <h2 class="menu-title" id="menu-title">Menu</h2>
+            <img id="menu-img" src="" alt="" hidden>
+            <div class="menu-msg" id="menu-msg" role="status" hidden>
+                This menu isn't available yet. Please check back closer to the festival!
+            </div>
+            <a id="menu-newtab" class="menu-newtab" href="#" target="_blank" rel="noopener" hidden>Open menu in a new tab</a>
         </div>
-        <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close enlarged banner">
+        <button type="button" class="menu-close" id="menu-close" aria-label="Close menu">
             <i data-lucide="x" class="w-5 h-5"></i>
         </button>
     </dialog>
@@ -741,36 +747,63 @@
             items.forEach(el => io.observe(el));
         })();
  
-        /* Lightbox */
-        (function setupLightbox() {
-            const dialog = document.getElementById('lightbox');
-            const bigImg = document.getElementById('lightbox-img');
-            const closeBtn = document.getElementById('lightbox-close');
-            const backdrop = document.getElementById('lightbox-backdrop');
-            if (!dialog || typeof dialog.showModal !== 'function') return;
+        /* Menu viewer: each banner opens the image named in its data-menu
+           attribute (1_menu.png ... 7_menu.png). */
+        (function setupMenuViewer() {
+            const dialog = document.getElementById('menu-dialog');
+            const title = document.getElementById('menu-title');
+            const img = document.getElementById('menu-img');
+            const msg = document.getElementById('menu-msg');
+            const newTab = document.getElementById('menu-newtab');
+            const closeBtn = document.getElementById('menu-close');
+            const backdrop = document.getElementById('menu-backdrop');
  
+            // If <dialog> isn't supported, just open the menu in a new tab
+            const hasDialog = dialog && typeof dialog.showModal === 'function';
             let opener = null;
  
             document.querySelectorAll('.banner-card').forEach(card => {
                 card.addEventListener('click', () => {
-                    const img = card.querySelector('img');
-                    bigImg.src = img.currentSrc || img.src;
-                    bigImg.alt = img.alt;
+                    const src = card.dataset.menu;
+                    const name = card.dataset.name;
+ 
+                    if (!hasDialog) {
+                        window.open(src, '_blank', 'noopener');
+                        return;
+                    }
+ 
                     opener = card;
+                    title.textContent = name + ' Menu';
+                    img.hidden = true;
+                    msg.hidden = true;
+                    newTab.hidden = true;
+ 
+                    img.onload = () => {
+                        img.hidden = false;
+                        newTab.href = src;
+                        newTab.hidden = false;
+                    };
+                    img.onerror = () => {
+                        img.hidden = true;
+                        msg.hidden = false;
+                    };
+                    img.alt = name + ' menu';
+                    img.src = src;
+ 
                     dialog.showModal();
                     closeBtn.focus();
                 });
             });
  
-            function close() {
-                dialog.close();
-            }
-            closeBtn.addEventListener('click', close);
+            if (!hasDialog) return;
+ 
+            closeBtn.addEventListener('click', () => dialog.close());
             backdrop.addEventListener('click', (e) => {
-                if (e.target === backdrop) close();
+                if (e.target === backdrop) dialog.close();
             });
             dialog.addEventListener('close', () => {
-                bigImg.src = '';
+                img.onload = img.onerror = null;
+                img.removeAttribute('src');
                 if (opener) opener.focus();
             });
         })();
