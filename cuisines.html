@@ -254,24 +254,51 @@
             background: rgba(15, 23, 42, 0.88);
             backdrop-filter: blur(3px);
         }
-        .lightbox-inner {
+     .menu-scroll {
             width: 100%;
             height: 100%;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 1rem;
+            padding: 4.5rem 1rem 2rem;
         }
-        .lightbox-inner img {
-            max-width: 100%;
-            max-height: 90vh;
-            width: auto;
+        .menu-scroll img {
+            display: block;
+            max-width: min(100%, 900px);
             height: auto;
+            margin: 0 auto;
             border-radius: 0.75rem;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             background: #fff;
         }
-        .lightbox-close {
+        .menu-title {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .menu-msg {
+            max-width: 28rem;
+            text-align: center;
+            color: #fff;
+            background: rgba(30, 58, 138, 0.9);
+            border: 1px solid #D4AF37;
+            border-radius: 0.75rem;
+            padding: 1.25rem 1.5rem;
+        }
+        .menu-newtab {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #fff;
+            font-size: 0.9rem;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .menu-close {
             position: fixed;
             top: 1rem;
             right: 1rem;
@@ -286,14 +313,14 @@
             justify-content: center;
             cursor: pointer;
         }
-        .lightbox-close:focus-visible {
+        .menu-close:focus-visible {
             outline: 3px solid #fff;
             outline-offset: 3px;
         }
-
+ 
         @media (prefers-reduced-motion: reduce) {
             .banner-card,
-            .banner-card .zoom-hint,
+            .banner-card .menu-hint,
             .js .reveal {
                 transition: none;
             }
@@ -302,7 +329,7 @@
         }
     </style>
 </head>
-<body class="font-sans text-gray-800 bg-stone-50">       
+<body class="font-sans text-gray-800 bg-stone-50"> 
 
 
     <!-- Navigation -->
@@ -450,7 +477,7 @@
      <!-- Food banners (each opens its menu_N image) -->
     <main class="banner-section py-14 sm:py-20">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-
+ 
             <!-- Savory -->
             <div class="text-center mb-10">
                 <div class="section-title">
@@ -459,45 +486,45 @@
                 <h2 class="font-serif text-3xl md:text-4xl font-bold text-church-blue mt-4">Around the World on a Plate</h2>
                 <p class="text-gray-600 mt-3 max-w-2xl mx-auto">Look for these signs around the festival grounds. Tap a banner to see its menu.</p>
             </div>
-
+ 
             <div class="space-y-8 sm:space-y-10">
-
+ 
                 <button type="button" class="banner-card reveal" data-menu="menu_1" data-name="Serbian-American Ćevapi"
                         aria-label="View menu: Serbian-American Ćevapi">
                     <img src="1_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
                          alt="Serbian-American Ćevapi. Od srca! Prijatno! From the Heart. Serbian and American flags with a Serbian coat of arms.">
                     <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
                 </button>
-
+ 
                 <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
-
+ 
                 <button type="button" class="banner-card reveal" data-menu="menu_2" data-name="In Brisket We Trust"
                         aria-label="View menu: In Brisket We Trust">
                     <img src="2_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
                          alt="We came. We smoked. We conquered. In brisket we trust. No bull, just brisket. A banner styled like a vintage banknote with cattle characters.">
                     <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
                 </button>
-
+ 
                 <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
-
+ 
                 <button type="button" class="banner-card reveal" data-menu="menu_3" data-name="Wok &amp; Roll Noodle Cart"
                         aria-label="View menu: Wok and Roll Noodle Cart">
                     <img src="3_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
                          alt="Wok and Roll Noodle Cart. Noodles, beats, good eats. A wok tossing noodles beside a rocker with a guitar.">
                     <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
                 </button>
-
+ 
                 <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
-
+ 
                 <button type="button" class="banner-card reveal" data-menu="menu_4" data-name="Carnaval de Sabores"
                         aria-label="View menu: Carnaval de Sabores">
                     <img src="4_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
                          alt="Carnaval de Sabores, a celebration of Latin American flavor. Colorful coastal scene with a guitarist and folk dancers.">
                     <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
                 </button>
-
+ 
                 <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
-
+ 
                 <button type="button" class="banner-card reveal" data-menu="menu_5" data-name="It's All Greek"
                         aria-label="View menu: It's All Greek">
                     <img src="5_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
@@ -505,7 +532,7 @@
                     <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
                 </button>
             </div>
-
+ 
             <!-- Drinks & sweets -->
             <div class="text-center mt-16 sm:mt-24 mb-10">
                 <div class="section-title">
@@ -514,18 +541,18 @@
                 <h2 class="font-serif text-3xl md:text-4xl font-bold text-church-blue mt-4">Sips &amp; Sweets</h2>
                 <p class="text-gray-600 mt-3 max-w-2xl mx-auto">Slow down, cool off, and stay awhile.</p>
             </div>
-
+ 
             <div class="space-y-8 sm:space-y-10">
-
+ 
                 <button type="button" class="banner-card reveal" data-menu="menu_6" data-name="The Oasis"
                         aria-label="View menu: The Oasis">
                     <img src="6_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
                          alt="The Oasis. Beer, wine, hookah, cigars. Sip. Smoke. Stay awhile. Lanterns, palms and a desert sunset.">
                     <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
                 </button>
-
+ 
                 <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
-
+ 
                 <button type="button" class="banner-card reveal" data-menu="menu_7" data-name="Sip &amp; Chill by Teen SOYO"
                         aria-label="View menu: Sip and Chill by Teen SOYO">
                     <img src="7_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
@@ -533,10 +560,9 @@
                     <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
                 </button>
             </div>
-
+ 
         </div>
     </main>
-
  
 
         <!-- Text and social icons below the ring -->
