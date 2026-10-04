@@ -38,6 +38,54 @@
         .gradient-header {
             background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
         }
+
+        or showcase ---------- */
+        .tier { --accent: #9ca3af; }
+        .tier-diamond  { --accent: #38bdf8; }
+        .tier-platinum { --accent: #94a3b8; }
+        .tier-gold     { --accent: #D4AF37; }
+        .tier-silver   { --accent: #9ca3af; }
+        .tier-bronze   { --accent: #b9714a; }
+        .tier-partner  { --accent: #9B2C2C; }
+ 
+        /* Tier heading: name centered between two rules in the tier's color */
+        .tier-title {
+            display: flex; align-items: center; gap: 1rem;
+            font-family: 'Playfair Display', serif; font-weight: 700;
+            color: #1E3A8A; margin-bottom: 1.5rem;
+        }
+        .tier-title::before, .tier-title::after {
+            content: ""; flex: 1; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent));
+        }
+        .tier-title::after { transform: scaleX(-1); }
+ 
+        /* Logo card */
+        .sponsor-card {
+            display: block; background: #fff; border-radius: 1rem; overflow: hidden;
+            border: 1px solid #e5e7eb; border-top: 4px solid var(--accent);
+            box-shadow: 0 1px 3px rgba(0,0,0,.08);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+        .sponsor-card:hover { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(30,58,138,.15); }
+        .sponsor-card img { display: block; width: 100%; height: auto; aspect-ratio: 2560 / 860; object-fit: contain; }
+ 
+        /* Diamond gets a spotlight treatment */
+        .tier-diamond .sponsor-card {
+            border-width: 1px 1px 6px 1px; border-color: #bae6fd; border-bottom-color: var(--accent);
+            box-shadow: 0 20px 45px rgba(56,189,248,.25);
+        }
+        .tier-diamond-wrap {
+            background: radial-gradient(ellipse at top, #e0f2fe 0%, #ffffff 70%);
+            border-radius: 1.5rem; padding: 2rem 1rem;
+        }
+        .tier-platinum .sponsor-card { box-shadow: 0 10px 24px rgba(100,116,139,.2); }
+        .tier-gold .sponsor-card     { box-shadow: 0 8px 20px rgba(212,175,55,.25); }
+ 
+        @media (prefers-reduced-motion: reduce) {
+            .sponsor-card { transition: none; }
+            .sponsor-card:hover { transform: none; }
+        }
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-stone-50">
