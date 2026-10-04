@@ -102,14 +102,14 @@
             background: linear-gradient(90deg, transparent, #D4AF37 20%, #D4AF37 80%, transparent);
         }
 
-           /* ---------- Banner section ---------- */
+        /* ---------- Banner section ---------- */
         .banner-section {
             background-color: #fffdf7;
             background-image:
                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='1.6' fill='%23D4AF37' fill-opacity='0.28'/%3E%3Cpath d='M32 14l3 15 15 3-15 3-3 15-3-15-15-3 15-3z' fill='none' stroke='%23D4AF37' stroke-opacity='0.12' stroke-width='1'/%3E%3C/svg%3E");
             background-size: 64px 64px;
         }
- 
+
         /* Section title with flanking gold rules and an icon */
         .section-title {
             display: flex;
@@ -141,7 +141,7 @@
             box-shadow: 0 0 0 4px #fffdf7, 0 0 0 6px #D4AF37;
             flex-shrink: 0;
         }
- 
+
         /* A banner "sign" */
         .banner-card {
             display: block;
@@ -151,7 +151,7 @@
             background: #fff;
             border-radius: 1rem;
             overflow: hidden;
-            cursor: pointer;
+            cursor: zoom-in;
             position: relative;
             box-shadow:
                 0 0 0 1px rgba(212, 175, 55, 0.55),
@@ -178,36 +178,35 @@
             width: 100%;
             height: auto;
         }
-        .banner-card .menu-hint {
+        .banner-card .zoom-hint {
             position: absolute;
             right: 0.6rem;
             bottom: 0.6rem;
             display: inline-flex;
             align-items: center;
             gap: 0.35rem;
-            padding: 0.35rem 0.8rem;
+            padding: 0.3rem 0.65rem;
             border-radius: 9999px;
-            background: rgba(30, 58, 138, 0.92);
-            border: 1px solid #D4AF37;
+            background: rgba(30, 58, 138, 0.88);
             color: #fff;
-            font-size: 0.78rem;
-            font-weight: 600;
+            font-size: 0.72rem;
+            font-weight: 500;
             letter-spacing: 0.02em;
             opacity: 0;
             transform: translateY(4px);
             transition: opacity 0.25s ease, transform 0.25s ease;
             pointer-events: none;
         }
-        .banner-card:hover .menu-hint,
-        .banner-card:focus-visible .menu-hint {
+        .banner-card:hover .zoom-hint,
+        .banner-card:focus-visible .zoom-hint {
             opacity: 1;
             transform: none;
         }
         /* Touch devices have no hover: keep the hint visible */
         @media (hover: none) {
-            .banner-card .menu-hint { opacity: 1; transform: none; }
+            .banner-card .zoom-hint { opacity: 1; transform: none; }
         }
- 
+
         /* Soft fade-in as banners scroll into view (only when JS is on) */
         .js .reveal {
             opacity: 0;
@@ -218,7 +217,7 @@
             opacity: 1;
             transform: none;
         }
- 
+
         /* Little star divider between banners */
         .star-divider {
             display: flex;
@@ -239,9 +238,9 @@
             width: 0.55rem;
             height: 0.55rem;
         }
- 
-        /* ---------- Menu lightbox ---------- */
-        #menu-dialog {
+
+        /* Lightbox */
+        #lightbox {
             padding: 0;
             border: 0;
             background: transparent;
@@ -251,55 +250,28 @@
             height: 100%;
             overflow: hidden;
         }
-        #menu-dialog::backdrop {
-            background: rgba(15, 23, 42, 0.9);
+        #lightbox::backdrop {
+            background: rgba(15, 23, 42, 0.88);
             backdrop-filter: blur(3px);
         }
-        .menu-scroll {
+        .lightbox-inner {
             width: 100%;
             height: 100%;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            padding: 4.5rem 1rem 2rem;
+            justify-content: center;
+            padding: 1rem;
         }
-        .menu-scroll img {
-            display: block;
-            max-width: min(100%, 900px);
+        .lightbox-inner img {
+            max-width: 100%;
+            max-height: 90vh;
+            width: auto;
             height: auto;
-            margin: 0 auto;
             border-radius: 0.75rem;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             background: #fff;
         }
-        .menu-title {
-            font-family: 'Playfair Display', serif;
-            color: #fff;
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-        .menu-msg {
-            max-width: 28rem;
-            text-align: center;
-            color: #fff;
-            background: rgba(30, 58, 138, 0.9);
-            border: 1px solid #D4AF37;
-            border-radius: 0.75rem;
-            padding: 1.25rem 1.5rem;
-        }
-        .menu-newtab {
-            display: inline-block;
-            margin-top: 1rem;
-            color: #fff;
-            font-size: 0.9rem;
-            text-decoration: underline;
-            text-underline-offset: 3px;
-        }
-        .menu-close {
+        .lightbox-close {
             position: fixed;
             top: 1rem;
             right: 1rem;
@@ -314,29 +286,24 @@
             justify-content: center;
             cursor: pointer;
         }
-        .menu-close:focus-visible {
+        .lightbox-close:focus-visible {
             outline: 3px solid #fff;
             outline-offset: 3px;
         }
- 
+
         @media (prefers-reduced-motion: reduce) {
             .banner-card,
-            .banner-card .menu-hint,
+            .banner-card .zoom-hint,
             .js .reveal {
                 transition: none;
             }
             .js .reveal { opacity: 1; transform: none; }
             .banner-card:hover, .banner-card:focus-visible { transform: none; }
         }
-         .menu-scroll img[hidden],
-.menu-newtab[hidden],
-.menu-msg[hidden] {
-    display: none !important;
-}
     </style>
 </head>
-<body class="font-sans text-gray-800 bg-stone-50">
- 
+<body class="font-sans text-gray-800 bg-stone-50">       
+
 
     <!-- Navigation -->
 <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
@@ -480,11 +447,11 @@
     </section>
     <div class="gold-rule" aria-hidden="true"></div>
  
-    <!-- Food banners (each opens its N_menu.png image via data-menu) -->
+     <!-- Food banners (each opens its menu_N image) -->
     <main class="banner-section py-14 sm:py-20">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
- 
-         <!-- Savory -->
+
+            <!-- Savory -->
             <div class="text-center mb-10">
                 <div class="section-title">
                     <span class="section-icon" aria-hidden="true"><i data-lucide="utensils" class="w-5 h-5"></i></span>
@@ -492,52 +459,53 @@
                 <h2 class="font-serif text-3xl md:text-4xl font-bold text-church-blue mt-4">Around the World on a Plate</h2>
                 <p class="text-gray-600 mt-3 max-w-2xl mx-auto">Look for these signs around the festival grounds. Tap a banner to see its menu.</p>
             </div>
- 
-       <div class="space-y-8 sm:space-y-10">
 
-    <button type="button" class="banner-card reveal" data-menu="1_menu.png" data-name="Serbian-American Ćevapi"
-            aria-haspopup="dialog" aria-label="View menu: Serbian-American Ćevapi">
-        <img src="1_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
-             alt="Serbian-American Ćevapi. Od srca! Prijatno! From the Heart. Serbian and American flags with a Serbian coat of arms.">
-        <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-4 h-4"></i>View Menu</span>
-    </button>
+            <div class="space-y-8 sm:space-y-10">
 
-    <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+                <button type="button" class="banner-card reveal" data-menu="menu_1" data-name="Serbian-American Ćevapi"
+                        aria-label="View menu: Serbian-American Ćevapi">
+                    <img src="1_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
+                         alt="Serbian-American Ćevapi. Od srca! Prijatno! From the Heart. Serbian and American flags with a Serbian coat of arms.">
+                    <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
+                </button>
 
-    <button type="button" class="banner-card reveal" data-menu="2_menu.png" data-name="In Brisket We Trust"
-            aria-haspopup="dialog" aria-label="View menu: In Brisket We Trust">
-        <img src="2_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
-             alt="We came. We smoked. We conquered. In brisket we trust. No bull, just brisket. A banner styled like a vintage banknote with cattle characters.">
-        <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-4 h-4"></i>View Menu</span>
-    </button>
+                <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
 
-    <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+                <button type="button" class="banner-card reveal" data-menu="menu_2" data-name="In Brisket We Trust"
+                        aria-label="View menu: In Brisket We Trust">
+                    <img src="2_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
+                         alt="We came. We smoked. We conquered. In brisket we trust. No bull, just brisket. A banner styled like a vintage banknote with cattle characters.">
+                    <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
+                </button>
 
-    <button type="button" class="banner-card reveal" data-menu="3_menu.png" data-name="Wok &amp; Roll Noodle Cart"
-            aria-haspopup="dialog" aria-label="View menu: Wok and Roll Noodle Cart">
-        <img src="3_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
-             alt="Wok and Roll Noodle Cart. Noodles, beats, good eats. A wok tossing noodles beside a rocker with a guitar.">
-        <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-4 h-4"></i>View Menu</span>
-    </button>
+                <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
 
-    <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+                <button type="button" class="banner-card reveal" data-menu="menu_3" data-name="Wok &amp; Roll Noodle Cart"
+                        aria-label="View menu: Wok and Roll Noodle Cart">
+                    <img src="3_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
+                         alt="Wok and Roll Noodle Cart. Noodles, beats, good eats. A wok tossing noodles beside a rocker with a guitar.">
+                    <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
+                </button>
 
-    <button type="button" class="banner-card reveal" data-menu="4_menu.png" data-name="Carnaval de Sabores"
-            aria-haspopup="dialog" aria-label="View menu: Carnaval de Sabores">
-        <img src="4_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
-             alt="Carnaval de Sabores, a celebration of Latin American flavor. Colorful coastal scene with a guitarist and folk dancers.">
-        <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-4 h-4"></i>View Menu</span>
-    </button>
+                <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
 
-    <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+                <button type="button" class="banner-card reveal" data-menu="menu_4" data-name="Carnaval de Sabores"
+                        aria-label="View menu: Carnaval de Sabores">
+                    <img src="4_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
+                         alt="Carnaval de Sabores, a celebration of Latin American flavor. Colorful coastal scene with a guitarist and folk dancers.">
+                    <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
+                </button>
 
-    <button type="button" class="banner-card reveal" data-menu="5_menu.png" data-name="It's All Greek"
-            aria-haspopup="dialog" aria-label="View menu: It's All Greek">
-        <img src="5_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
-             alt="It's All Greek! Dancers in traditional Greek dress in front of whitewashed buildings with blue domes and pink flowers.">
-        <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-4 h-4"></i>View Menu</span>
-    </button>
-</div>
+                <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+
+                <button type="button" class="banner-card reveal" data-menu="menu_5" data-name="It's All Greek"
+                        aria-label="View menu: It's All Greek">
+                    <img src="5_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
+                         alt="It's All Greek! Dancers in traditional Greek dress in front of whitewashed buildings with blue domes and pink flowers.">
+                    <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
+                </button>
+            </div>
+
             <!-- Drinks & sweets -->
             <div class="text-center mt-16 sm:mt-24 mb-10">
                 <div class="section-title">
@@ -546,27 +514,30 @@
                 <h2 class="font-serif text-3xl md:text-4xl font-bold text-church-blue mt-4">Sips &amp; Sweets</h2>
                 <p class="text-gray-600 mt-3 max-w-2xl mx-auto">Slow down, cool off, and stay awhile.</p>
             </div>
- 
-         <div class="space-y-8 sm:space-y-10">
 
-    <button type="button" class="banner-card reveal" data-menu="6_menu.png" data-name="The Oasis"
-            aria-haspopup="dialog" aria-label="View menu: The Oasis">
-        <img src="6_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
-             alt="The Oasis. Beer, wine, hookah, cigars. Sip. Smoke. Stay awhile. Lanterns, palms and a desert sunset.">
-        <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-4 h-4"></i>View Menu</span>
-    </button>
+            <div class="space-y-8 sm:space-y-10">
 
-    <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+                <button type="button" class="banner-card reveal" data-menu="menu_6" data-name="The Oasis"
+                        aria-label="View menu: The Oasis">
+                    <img src="6_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
+                         alt="The Oasis. Beer, wine, hookah, cigars. Sip. Smoke. Stay awhile. Lanterns, palms and a desert sunset.">
+                    <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
+                </button>
 
-    <button type="button" class="banner-card reveal" data-menu="7_menu.png" data-name="Sip &amp; Chill by Teen SOYO"
-            aria-haspopup="dialog" aria-label="View menu: Sip and Chill by Teen SOYO">
-        <img src="7_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
-             alt="Sip and Chill by Teen SOYO. Cold sips, sweet treats. Come sip and see! Retro diner style with checkerboard borders.">
-        <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-4 h-4"></i>View Menu</span>
-    </button>
-</div>
+                <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+
+                <button type="button" class="banner-card reveal" data-menu="menu_7" data-name="Sip &amp; Chill by Teen SOYO"
+                        aria-label="View menu: Sip and Chill by Teen SOYO">
+                    <img src="7_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
+                         alt="Sip and Chill by Teen SOYO. Cold sips, sweet treats. Come sip and see! Retro diner style with checkerboard borders.">
+                    <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
+                </button>
+            </div>
+
         </div>
     </main>
+
+ 
 
         <!-- Text and social icons below the ring -->
 <section class="py-16 bg-white">
@@ -698,111 +669,86 @@
 
     
 
-      <!-- Menu viewer -->
-    <dialog id="menu-dialog" aria-labelledby="menu-title">
-        <div class="menu-scroll" id="menu-backdrop">
-            <h2 class="menu-title" id="menu-title">Menu</h2>
-            <img id="menu-img" src="" alt="" hidden>
-            <div class="menu-msg" id="menu-msg" role="status" hidden>
-                This menu isn't available yet. Please check back closer to the festival!
-            </div>
-            <a id="menu-newtab" class="menu-newtab" href="#" target="_blank" rel="noopener" hidden>Open menu in a new tab</a>
+           <!-- Lightbox for enlarged banners -->
+    <dialog id="lightbox" aria-label="Enlarged banner">
+        <div class="lightbox-inner" id="lightbox-backdrop">
+            <img id="lightbox-img" src="" alt="">
         </div>
-        <button type="button" class="menu-close" id="menu-close" aria-label="Close menu">
+        <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close enlarged banner">
             <i data-lucide="x" class="w-5 h-5"></i>
         </button>
     </dialog>
  
-   <script>
-    document.documentElement.classList.add('js');
-
-    function toggleMobileMenu() {
-        document.getElementById('mobile-menu').classList.toggle('hidden');
-    }
-
-    window.addEventListener('scroll', function () {
-        const navbar = document.getElementById('navbar');
-        navbar.classList.toggle('shadow-md', window.scrollY > 50);
-    });
-
-    /* Fade banners in as they scroll into view */
-    (function setupReveal() {
-        const items = document.querySelectorAll('.reveal');
-        if (!('IntersectionObserver' in window)) {
-            items.forEach(el => el.classList.add('is-visible'));
-            return;
+    <script>
+        document.documentElement.classList.add('js');
+        lucide.createIcons();
+ 
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
         }
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    io.unobserve(entry.target);
-                }
+ 
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+ 
+        /* Fade banners in as they scroll into view */
+        (function setupReveal() {
+            const items = document.querySelectorAll('.reveal');
+            if (!('IntersectionObserver' in window)) {
+                items.forEach(el => el.classList.add('is-visible'));
+                return;
+            }
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            items.forEach(el => io.observe(el));
+        })();
+ 
+        /* Lightbox */
+        (function setupLightbox() {
+            const dialog = document.getElementById('lightbox');
+            const bigImg = document.getElementById('lightbox-img');
+            const closeBtn = document.getElementById('lightbox-close');
+            const backdrop = document.getElementById('lightbox-backdrop');
+            if (!dialog || typeof dialog.showModal !== 'function') return;
+ 
+            let opener = null;
+ 
+            document.querySelectorAll('.banner-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const img = card.querySelector('img');
+                    bigImg.src = img.currentSrc || img.src;
+                    bigImg.alt = img.alt;
+                    opener = card;
+                    dialog.showModal();
+                    closeBtn.focus();
+                });
             });
-        }, { threshold: 0.12 });
-        items.forEach(el => io.observe(el));
-    })();
-
-    /* Menu viewer: each banner button carries data-menu="N_menu.png".
-       Buttons have no href, so a click can never navigate to a 404 page.
-       The "View Menu" hint is inside the button, so it triggers the same handler. */
-    (function setupMenuViewer() {
-        const dialog   = document.getElementById('menu-dialog');
-        const title    = document.getElementById('menu-title');
-        const img      = document.getElementById('menu-img');
-        const msg      = document.getElementById('menu-msg');
-        const newTab   = document.getElementById('menu-newtab');
-        const closeBtn = document.getElementById('menu-close');
-        const backdrop = document.getElementById('menu-backdrop');
-
-        let opener = null;
-
-        function openMenu(card) {
-            const src  = card.dataset.menu;
-            const name = card.dataset.name || 'Menu';
-            if (!src) return;
-
-            opener = card;
-            title.textContent = name + ' Menu';
-            img.hidden = true;
-            msg.hidden = true;
-            newTab.hidden = true;
-
-            img.onload = () => {
-                img.hidden = false;
-                newTab.href = src;
-                newTab.hidden = false;
-            };
-            img.onerror = () => {
-                img.hidden = true;
-                msg.hidden = false;
-                console.warn('Menu image not found:', new URL(src, location.href).href);
-            };
-            img.alt = name + ' menu';
-            img.src = src;
-
-            dialog.showModal();
-            closeBtn.focus();
-        }
-
-        document.querySelectorAll('.banner-card').forEach(card => {
-            card.addEventListener('click', () => openMenu(card));
-        });
-
-        closeBtn.addEventListener('click', () => dialog.close());
-        backdrop.addEventListener('click', (e) => {
-            if (e.target === backdrop) dialog.close();
-        });
-        dialog.addEventListener('close', () => {
-            img.onload = img.onerror = null;
-            img.removeAttribute('src');
-            if (opener) opener.focus();
-        });
-    })();
-
-    /* Icons last, and guarded: if the Lucide CDN fails, everything above still works */
-    try { lucide.createIcons(); } catch (err) { console.warn('Lucide icons unavailable:', err); }
-</script>
+ 
+            function close() {
+                dialog.close();
+            }
+            closeBtn.addEventListener('click', close);
+            backdrop.addEventListener('click', (e) => {
+                if (e.target === backdrop) close();
+            });
+            dialog.addEventListener('close', () => {
+                bigImg.src = '';
+                if (opener) opener.focus();
+            });
+        })();
+    </script>
  
 </body>
 </html>
