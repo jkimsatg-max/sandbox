@@ -250,7 +250,7 @@
             height: 100%;
             overflow: hidden;
         }
-        #lightbox::backdrop {
+           #lightbox::backdrop {
             background: rgba(15, 23, 42, 0.88);
             backdrop-filter: blur(3px);
         }
@@ -258,11 +258,13 @@
             width: 100%;
             height: 100%;
             display: flex;
-            align-items: center;
-            justify-content: center;
             padding: 1rem;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
         }
+        /* margin:auto centers the image without clipping the top when it scrolls */
         .lightbox-inner img {
+            margin: auto;
             max-width: 100%;
             max-height: 90vh;
             width: auto;
@@ -270,6 +272,29 @@
             border-radius: 0.75rem;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             background: #fff;
+            cursor: zoom-in;
+        }
+        /* Zoomed: full width, scroll to read small text */
+        .lightbox-inner img.zoomed {
+            width: 100%;
+            max-width: 1400px;
+            max-height: none;
+            cursor: zoom-out;
+        }
+        .lightbox-caption {
+            position: fixed;
+            left: 50%;
+            bottom: 0.75rem;
+            transform: translateX(-50%);
+            max-width: calc(100% - 2rem);
+            padding: 0.3rem 0.9rem;
+            border-radius: 9999px;
+            background: rgba(30, 58, 138, 0.92);
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-align: center;
+            pointer-events: none;
         }
         .lightbox-close {
             position: fixed;
@@ -285,6 +310,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            z-index: 2;
         }
         .lightbox-close:focus-visible {
             outline: 3px solid #fff;
@@ -293,7 +319,7 @@
 
         @media (prefers-reduced-motion: reduce) {
             .banner-card,
-            .banner-card .zoom-hint,
+            .banner-card .menu-hint,
             .js .reveal {
                 transition: none;
             }
@@ -303,6 +329,7 @@
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-stone-50">       
+
 
 
     <!-- Navigation -->
@@ -447,7 +474,7 @@
     </section>
     <div class="gold-rule" aria-hidden="true"></div>
  
-     <!-- Food banners (each opens its menu_N image) -->
+    <!-- Food banners (each opens its N_menu.png image) -->
     <main class="banner-section py-14 sm:py-20">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -462,7 +489,7 @@
 
             <div class="space-y-8 sm:space-y-10">
 
-                <button type="button" class="banner-card reveal" data-menu="menu_1" data-name="Serbian-American Ćevapi"
+                <button type="button" class="banner-card reveal" data-menu="1_menu.png" data-name="Serbian-American Ćevapi"
                         aria-label="View menu: Serbian-American Ćevapi">
                     <img src="1_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
                          alt="Serbian-American Ćevapi. Od srca! Prijatno! From the Heart. Serbian and American flags with a Serbian coat of arms.">
@@ -471,7 +498,7 @@
 
                 <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
 
-                <button type="button" class="banner-card reveal" data-menu="menu_2" data-name="In Brisket We Trust"
+                <button type="button" class="banner-card reveal" data-menu="2_menu.png" data-name="In Brisket We Trust"
                         aria-label="View menu: In Brisket We Trust">
                     <img src="2_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
                          alt="We came. We smoked. We conquered. In brisket we trust. No bull, just brisket. A banner styled like a vintage banknote with cattle characters.">
@@ -480,7 +507,7 @@
 
                 <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
 
-                <button type="button" class="banner-card reveal" data-menu="menu_3" data-name="Wok &amp; Roll Noodle Cart"
+                <button type="button" class="banner-card reveal" data-menu="3_menu.png" data-name="Wok &amp; Roll Noodle Cart"
                         aria-label="View menu: Wok and Roll Noodle Cart">
                     <img src="3_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
                          alt="Wok and Roll Noodle Cart. Noodles, beats, good eats. A wok tossing noodles beside a rocker with a guitar.">
@@ -489,7 +516,7 @@
 
                 <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
 
-                <button type="button" class="banner-card reveal" data-menu="menu_4" data-name="Carnaval de Sabores"
+                <button type="button" class="banner-card reveal" data-menu="4_menu.png" data-name="Carnaval de Sabores"
                         aria-label="View menu: Carnaval de Sabores">
                     <img src="4_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
                          alt="Carnaval de Sabores, a celebration of Latin American flavor. Colorful coastal scene with a guitarist and folk dancers.">
@@ -498,7 +525,7 @@
 
                 <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
 
-                <button type="button" class="banner-card reveal" data-menu="menu_5" data-name="It's All Greek"
+                <button type="button" class="banner-card reveal" data-menu="5_menu.png" data-name="It's All Greek"
                         aria-label="View menu: It's All Greek">
                     <img src="5_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
                          alt="It's All Greek! Dancers in traditional Greek dress in front of whitewashed buildings with blue domes and pink flowers.">
@@ -517,7 +544,7 @@
 
             <div class="space-y-8 sm:space-y-10">
 
-                <button type="button" class="banner-card reveal" data-menu="menu_6" data-name="The Oasis"
+                <button type="button" class="banner-card reveal" data-menu="6_menu.png" data-name="The Oasis"
                         aria-label="View menu: The Oasis">
                     <img src="6_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
                          alt="The Oasis. Beer, wine, hookah, cigars. Sip. Smoke. Stay awhile. Lanterns, palms and a desert sunset.">
@@ -526,7 +553,7 @@
 
                 <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
 
-                <button type="button" class="banner-card reveal" data-menu="menu_7" data-name="Sip &amp; Chill by Teen SOYO"
+                <button type="button" class="banner-card reveal" data-menu="7_menu.png" data-name="Sip &amp; Chill by Teen SOYO"
                         aria-label="View menu: Sip and Chill by Teen SOYO">
                     <img src="7_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
                          alt="Sip and Chill by Teen SOYO. Cold sips, sweet treats. Come sip and see! Retro diner style with checkerboard borders.">
@@ -536,7 +563,6 @@
 
         </div>
     </main>
-
  
 
         <!-- Text and social icons below the ring -->
