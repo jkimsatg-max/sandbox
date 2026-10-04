@@ -391,15 +391,54 @@
                 </div>
 
                 <!-- Container 2: Festival Map -->
-                <div class="bg-stone-50 rounded-2xl p-6 shadow-2xl border border-church-gold/20 flex flex-col">
+               <div class="bg-stone-50 rounded-2xl p-6 shadow-2xl border border-church-gold/20 flex flex-col">
     <div class="rounded-2xl overflow-hidden shadow-lg border-4 border-church-gold/30 bg-white flex-1 flex items-center justify-center">
-        <img src="FestivalMap.png"
-             alt="Festival grounds map"
-             loading="lazy"
-             class="w-full h-auto object-contain">
+        <button type="button"
+                onclick="openMapPreview()"
+                title="Click to enlarge festival map"
+                class="block w-full cursor-zoom-in">
+            <img src="FestivalMap.png"
+                 alt="Festival grounds map"
+                 loading="lazy"
+                 class="w-full h-auto object-contain">
+        </button>
     </div>
 </div>
 
+<!-- Inline Map Preview -->
+<div id="mapPreview"
+     class="hidden fixed inset-0 z-50 bg-black/80 p-4 flex items-center justify-center"
+     onclick="closeMapPreview()">
+
+    <div class="relative max-w-6xl max-h-[95vh]">
+        <button type="button"
+                onclick="closeMapPreview(event)"
+                class="absolute top-3 right-3 z-10 bg-white/90 hover:bg-white text-gray-800 rounded-full w-10 h-10 text-2xl shadow-lg"
+                aria-label="Close map preview">
+            &times;
+        </button>
+
+        <img src="FestivalMap.png"
+             alt="Festival grounds map enlarged"
+             class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl">
+    </div>
+</div>
+
+<script>
+function openMapPreview() {
+    document.getElementById('mapPreview').classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+}
+
+function closeMapPreview(event) {
+    if (event) {
+        event.stopPropagation();
+    }
+
+    document.getElementById('mapPreview').classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+}
+</script>
             </div>
         </div>
     </section>
