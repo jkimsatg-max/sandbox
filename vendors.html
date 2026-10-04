@@ -3,21 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Vendors - St. Anthony the Great Orthodox Christian Church International Food Festival</title>
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet"
+    >
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'serif': ['Playfair Display', 'serif'],
-                        'sans': ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        cinzel: ['Cinzel', 'serif']
                     },
+
                     colors: {
                         'church-gold': '#D4AF37',
                         'church-blue': '#1E3A8A',
@@ -26,6 +39,10 @@
                         'warm-cream': '#FEF3C7',
                         'deep-amber': '#92400E',
                         'sky-blue': '#7AA2CC'
+                    },
+
+                    boxShadow: {
+                        'vendor': '0 12px 35px rgba(30, 58, 138, 0.10)'
                     }
                 }
             }
@@ -33,301 +50,725 @@
     </script>
 
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
         .gradient-header {
-            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            background: linear-gradient(
+                135deg,
+                #1E3A8A 0%,
+                #3B82F6 100%
+            );
+        }
+
+        .vendor-feature-card {
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .vendor-feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 45px rgba(30, 58, 138, 0.14);
+        }
+
+        .gold-accent {
+            background-color: #D4AF37;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 9999px;
+            transition:
+                transform 0.2s ease,
+                background-color 0.2s ease,
+                color 0.2s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-facebook {
+            background-color: #EFF6FF;
+            color: #1D4ED8;
+        }
+
+        .social-facebook:hover {
+            background-color: #DBEAFE;
+        }
+
+        .social-instagram {
+            background-color: #FDF2F8;
+            color: #BE185D;
+        }
+
+        .social-instagram:hover {
+            background-color: #FCE7F3;
         }
     </style>
 </head>
+
+
 <body class="font-sans text-gray-800 bg-stone-50">
 
 
- <!-- Navigation -->
-<nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
 
-    <div class="max-w-[100rem] mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
+    <nav
+        id="navbar"
+        class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300"
+    >
 
-        <div class="flex items-center justify-between h-20">
+        <div class="max-w-[100rem] mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
 
-            <!-- LOGOS -->
-            <a href="index.html" class="flex items-center flex-shrink-0">
-                <div class="flex items-center gap-2">
-                    <img src="1_ifflogo.png"
-                         alt="Food Festival Logo 1"
-                         class="h-14 sm:h-16 lg:h-20 w-auto object-contain flex-shrink-0"
-                         onerror="this.style.display='none'">
+            <div class="flex items-center justify-between h-20">
 
-                    <img src="2_ifflogo.png"
-                         alt="Food Festival Logo 2"
-                         class="hidden sm:block h-8 sm:h-10 w-auto object-contain flex-shrink-0"
-                         onerror="this.style.display='none'">
+
+                <!-- LOGOS -->
+
+                <a
+                    href="index.html"
+                    class="flex items-center flex-shrink-0"
+                    aria-label="International Food Festival Home"
+                >
+
+                    <div class="flex items-center gap-2">
+
+                        <img
+                            src="1_ifflogo.png"
+                            alt="International Food Festival Logo"
+                            class="h-14 sm:h-16 lg:h-20 w-auto object-contain flex-shrink-0"
+                            onerror="this.style.display='none'"
+                        >
+
+                        <img
+                            src="2_ifflogo.png"
+                            alt=""
+                            aria-hidden="true"
+                            class="hidden sm:block h-8 sm:h-10 w-auto object-contain flex-shrink-0"
+                            onerror="this.style.display='none'"
+                        >
+
+                    </div>
+
+                </a>
+
+
+                <!-- DESKTOP NAVIGATION -->
+
+                <div
+                    class="hidden md:flex items-center flex-1 justify-end gap-2 lg:gap-3 xl:gap-5 ml-4 lg:ml-6 xl:ml-10"
+                >
+
+                    <a
+                        href="index.html"
+                        class="text-gray-700 hover:text-church-gold font-medium transition-colors whitespace-nowrap"
+                    >
+                        Home
+                    </a>
+
+                    <a
+                        href="about.html"
+                        class="text-gray-700 hover:text-church-gold font-medium transition-colors whitespace-nowrap"
+                    >
+                        About
+                    </a>
+
+                    <a
+                        href="cuisines.html"
+                        class="text-gray-700 hover:text-church-gold font-medium transition-colors whitespace-nowrap"
+                    >
+                        Cuisines
+                    </a>
+
+                    <a
+                        href="schedule.html"
+                        class="text-gray-700 hover:text-church-gold font-medium transition-colors whitespace-nowrap"
+                    >
+                        Schedule
+                    </a>
+
+                    <a
+                        href="sponsorship.html"
+                        class="text-gray-700 hover:text-church-gold font-medium transition-colors whitespace-nowrap"
+                    >
+                        Sponsorship
+                    </a>
+
+                    <!-- ACTIVE PAGE -->
+
+                    <a
+                        href="vendors.html"
+                        aria-current="page"
+                        class="text-church-gold font-semibold border-b-2 border-church-gold whitespace-nowrap pb-1"
+                    >
+                        Vendors
+                    </a>
+
+                    <a
+                        href="contact.html"
+                        class="text-gray-700 hover:text-church-gold font-medium transition-colors whitespace-nowrap"
+                    >
+                        Contact
+                    </a>
+
+                    <!-- TICKETS -->
+
+                    <a
+                        href="https://www.eventbrite.com/e/international-food-festival-tickets-1997634648007?msockid=0a561da7d33963cc1a630a0bd2a062ce"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="bg-church-gold text-white px-4 lg:px-5 py-2 rounded-full font-medium hover:bg-yellow-600 transition-all transform hover:scale-105 shadow-md whitespace-nowrap"
+                    >
+                        Tickets
+                    </a>
+
                 </div>
-            </a>
-
-    
-<!-- DESKTOP NAVIGATION -->
-<div class="hidden md:flex items-center flex-1 justify-end
-            gap-2 lg:gap-3 xl:gap-5
-            ml-4 lg:ml-6 xl:ml-10">
-
-    <a href="index.html"
-       class="text-gray-700 hover:text-church-gold font-medium transition-colors whitespace-nowrap">
-        Home
-    </a>
-
-    <a href="about.html"
-       class="text-gray-700 hover:text-church-gold font-medium transition-colors whitespace-nowrap">
-        About
-    </a>
-
-    <a href="cuisines.html"
-       class="text-gray-700 hover:text-church-gold font-medium transition-colors whitespace-nowrap">
-        Cuisines
-    </a>
-
-    <a href="schedule.html"
-       class="text-gray-700 hover:text-church-gold font-medium transition-colors whitespace-nowrap">
-        Schedule
-    </a>
-
-    <a href="sponsorship.html"
-       class="text-gray-700 hover:text-church-gold font-medium transition-colors whitespace-nowrap">
-        Sponsorship
-    </a>
-
-    <a href="vendors.html"
-       class="text-church-gold font-semibold border-b-2 border-church-gold whitespace-nowrap">
-        Vendors
-    </a>
-
-    <a href="contact.html"
-       class="text-gray-700 hover:text-church-gold font-medium transition-colors whitespace-nowrap">
-        Contact
-    </a>
-
-    <a href="https://www.eventbrite.com/e/international-food-festival-tickets-1997634648007?msockid=0a561da7d33963cc1a630a0bd2a062ce"
-       target="_blank"
-       class="bg-church-gold text-white px-4 lg:px-5 py-2 rounded-full
-              font-medium hover:bg-yellow-600 transition-all
-              transform hover:scale-105 shadow-md whitespace-nowrap">
-        Tickets
-    </a>
-
-</div>
-
-            <!-- MOBILE MENU BUTTON -->
-            <button class="md:hidden p-2 rounded-lg hover:bg-gray-100"
-                    onclick="toggleMobileMenu()">
-                <i data-lucide="menu" class="w-6 h-6 text-church-blue"></i>
-            </button>
-
-        </div>
-    </div>
 
 
-    <!-- MOBILE MENU -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-        <div class="px-4 pt-2 pb-4 space-y-1">
+                <!-- MOBILE MENU BUTTON -->
 
-            <a href="index.html"
-               class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">
-                Home
-            </a>
+                <button
+                    type="button"
+                    id="mobile-menu-button"
+                    class="md:hidden p-2 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-church-gold"
+                    onclick="toggleMobileMenu()"
+                    aria-label="Open navigation menu"
+                    aria-controls="mobile-menu"
+                    aria-expanded="false"
+                >
 
-            <a href="about.html"
-               class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">
-                About
-            </a>
+                    <i
+                        data-lucide="menu"
+                        class="w-6 h-6 text-church-blue"
+                    ></i>
 
-            <a href="cuisines.html"
-               class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">
-                Cuisines
-            </a>
+                </button>
 
-            <a href="schedule.html"
-               class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">
-                Schedule
-            </a>
-
-            <a href="sponsorship.html"
-               class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">
-                Sponsorship
-            </a>
-
-            <a href="vendors.html"
-               class="block px-3 py-2 text-church-gold font-semibold bg-warm-cream rounded-md">
-                Vendors
-            </a>
-
-            <a href="contact.html"
-               class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">
-                Contact
-            </a>
-
-            <a href="https://www.eventbrite.com/e/international-food-festival-tickets-1997634648007?msockid=0a561da7d33963cc1a630a0bd2a062ce"
-               target="_blank"
-               class="block px-3 py-2 text-church-gold font-semibold">
-                Tickets
-            </a>
-
-        </div>
-    </div>
-
-</nav>
-
-    <section class="pt-28 pb-10 gradient-header">
-        <div class="max-w-[100rem] mx-auto px-2 sm:px-3 lg:px-4 text-center">
-            <h1 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Vendors</h1>
-        
-        </div>
-    </section>
-
-    <section class="py-12 bg-white">
-         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
- 
-            <!-- Vendor Header Image -->
-            <div class="mb-4">
-                <img src="vendorheader.png" alt="International Food Festival Marketplace Vendor Application" class="w-full h-auto">
             </div>
 
-
-<section
-    class="vendor-feature-card bg-white border border-blue-100 rounded-3xl shadow-card"
-    aria-labelledby="vendor-cta-heading"
->
-
-    <div class="p-8 sm:p-10 lg:px-14 lg:py-12 text-center">
-
-        <div class="inline-flex items-center justify-center gap-2 text-church-gold font-semibold text-sm uppercase tracking-wider mb-4">
-            <span class="w-8 h-px bg-church-gold"></span>
-            Festival Marketplace
-            <span class="w-8 h-px bg-church-gold"></span>
         </div>
 
-        <h2
-            id="vendor-cta-heading"
-            class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-church-blue leading-tight"
+
+        <!-- MOBILE MENU -->
+
+        <div
+            id="mobile-menu"
+            class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg"
         >
-            Come See Our Vendors
-        </h2>
 
-        <div class="gold-accent h-px w-20 mx-auto mt-5"></div>
+            <div class="px-4 pt-2 pb-4 space-y-1">
 
-        <p class="mt-5 mx-auto max-w-2xl text-gray-600 text-base sm:text-lg leading-relaxed">
-            Explore the unique businesses, artisans, and local vendors
-            that help make the International Food Festival a memorable
-            experience for the whole family.
-        </p>
+                <a
+                    href="index.html"
+                    class="mobile-nav-link block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md"
+                >
+                    Home
+                </a>
 
-    </div>
+                <a
+                    href="about.html"
+                    class="mobile-nav-link block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md"
+                >
+                    About
+                </a>
 
-</section>
+                <a
+                    href="cuisines.html"
+                    class="mobile-nav-link block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md"
+                >
+                    Cuisines
+                </a>
 
+                <a
+                    href="schedule.html"
+                    class="mobile-nav-link block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md"
+                >
+                    Schedule
+                </a>
 
+                <a
+                    href="sponsorship.html"
+                    class="mobile-nav-link block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md"
+                >
+                    Sponsorship
+                </a>
 
+                <a
+                    href="vendors.html"
+                    aria-current="page"
+                    class="mobile-nav-link block px-3 py-2 text-church-gold font-semibold bg-warm-cream rounded-md"
+                >
+                    Vendors
+                </a>
 
-                <!-- Supporting spacing / future vendor content -->
-                <div class="mt-12 text-center">
- <!-- Text and social icons below the ring -->
-     <section class="py-16 bg-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">    
+                <a
+                    href="contact.html"
+                    class="mobile-nav-link block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md"
+                >
+                    Contact
+                </a>
 
-        <p class="text-lg text-gray-700 leading-relaxed mb-8">
-            Follow us on
-        </p>
+                <a
+                    href="https://www.eventbrite.com/e/international-food-festival-tickets-1997634648007?msockid=0a561da7d33963cc1a630a0bd2a062ce"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block px-3 py-2 text-church-gold font-semibold"
+                >
+                    Tickets
+                </a>
 
-        <div class="flex items-center justify-center gap-6 mb-8">
-            <!-- Facebook Icon -->
-            <a href="https://www.facebook.com/InternationalFoodFestival"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="social-icon social-facebook social-lg">
-                <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M13.5 8H15V5h-2c-2.2 0-3.5 1.3-3.5 3.7V11H7v3h2.5v7h3V14h2.2l.3-3H12.5V8.9c0-.6.3-.9 1-.9z"/>
-                </svg>
-            </a>
+            </div>
 
-            <!-- Instagram Icon -->
-            <a href="https://www.instagram.com/satginternationalfoodfestival/"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="social-icon social-instagram social-lg">
-                <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zM4 7.75A3.75 3.75 0 0 1 7.75 4h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5z"/>
-                    <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
-                    <circle cx="17.5" cy="6.5" r="1.25"/>
-                </svg>
-            </a>
         </div>
 
+    </nav>
 
-    </div>
-</section>
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
+
+    <main>
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="pt-28 pb-10 gradient-header">
+
+            <div class="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+                <h1 class="font-serif text-4xl md:text-5xl font-bold text-white">
+                    Vendors
+                </h1>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             VENDOR CONTENT
+        ====================================================== -->
+
+        <section class="py-12 bg-white">
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+
+                <!-- VENDOR HEADER IMAGE -->
+
+                <div class="mb-8 overflow-hidden rounded-2xl shadow-sm">
+
+                    <img
+                        src="vendorheader.png"
+                        alt="International Food Festival Marketplace Vendor Application"
+                        class="w-full h-auto block"
+                    >
 
                 </div>
 
+
+                <!-- =================================================
+                     FEATURED VENDOR CARD
+                ================================================== -->
+
+                <section
+                    class="vendor-feature-card bg-white border border-blue-100 rounded-3xl shadow-vendor overflow-hidden"
+                    aria-labelledby="vendor-cta-heading"
+                >
+
+                    <div class="p-8 sm:p-10 lg:px-14 lg:py-12 text-center">
+
+
+                        <!-- CARD LABEL -->
+
+                        <div
+                            class="inline-flex items-center justify-center gap-2 text-church-gold font-semibold text-xs sm:text-sm uppercase tracking-[0.18em] mb-5"
+                        >
+
+                            <span class="w-8 sm:w-10 h-px bg-church-gold"></span>
+
+                            <span>Festival Marketplace</span>
+
+                            <span class="w-8 sm:w-10 h-px bg-church-gold"></span>
+
+                        </div>
+
+
+                        <!-- HEADING -->
+
+                        <h2
+                            id="vendor-cta-heading"
+                            class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-church-blue leading-tight"
+                        >
+                            Come See Our Vendors
+                        </h2>
+
+
+                        <!-- GOLD ACCENT -->
+
+                        <div
+                            class="gold-accent h-1 w-20 mx-auto mt-5 rounded-full"
+                            aria-hidden="true"
+                        ></div>
+
+
+                        <!-- DESCRIPTION -->
+
+                        <p
+                            class="mt-6 mx-auto max-w-2xl text-gray-600 text-base sm:text-lg leading-relaxed"
+                        >
+                            Explore the unique businesses, artisans, and local vendors
+                            that help make the International Food Festival a memorable
+                            experience for the whole family.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SOCIAL MEDIA
+        ====================================================== -->
+
+        <section class="py-16 bg-stone-50">
+
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    Follow us on
+                </p>
+
+
+                <div class="flex items-center justify-center gap-5">
+
+
+                    <!-- FACEBOOK -->
+
+                    <a
+                        href="https://www.facebook.com/InternationalFoodFestival"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-icon social-facebook"
+                        aria-label="Follow us on Facebook"
+                    >
+
+                        <svg
+                            class="h-7 w-7"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path d="M13.5 8H15V5h-2c-2.2 0-3.5 1.3-3.5 3.7V11H7v3h2.5v7h3V14h2.2l.3-3H12.5V8.9c0-.6.3-.9 1-.9z"/>
+                        </svg>
+
+                    </a>
+
+
+                    <!-- INSTAGRAM -->
+
+                    <a
+                        href="https://www.instagram.com/satginternationalfoodfestival/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-icon social-instagram"
+                        aria-label="Follow us on Instagram"
+                    >
+
+                        <svg
+                            class="h-7 w-7"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+
+                            <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zM4 7.75A3.75 3.75 0 0 1 7.75 4h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5z"/>
+
+                            <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
+
+                            <circle
+                                cx="17.5"
+                                cy="6.5"
+                                r="1.25"
+                            />
+
+                        </svg>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
 
     </main>
 
-                
-      
-    
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
     <footer class="bg-church-blue text-white pt-16 pb-8">
-        <div class="max-w-[100rem] mx-auto px-4">
+
+        <div class="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+
+
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-left">
+
+
+                <!-- FESTIVAL -->
+
                 <div class="flex flex-col items-center sm:items-start">
+
                     <div class="flex items-center gap-2 mb-4">
-                        <i data-lucide="church" class="h-6 w-6 text-orthodox-gold"></i>
-                        <span class="font-cinzel font-bold text-white text-lg">SATG International Food Festival</span>
+
+                        <i
+                            data-lucide="church"
+                            class="h-6 w-6 text-church-gold"
+                        ></i>
+
+                        <span class="font-cinzel font-bold text-white text-lg">
+                            SATG International Food Festival
+                        </span>
+
                     </div>
-                    <p class="text-sm leading-relaxed mb-4 max-w-xs">Celebrating Orthodox Christian tradition since 1982.</p>
+
+                    <p class="text-sm leading-relaxed mb-4 max-w-xs text-blue-100">
+                        Celebrating Orthodox Christian tradition since 1982.
+                    </p>
+
                 </div>
 
+
+                <!-- QUICK LINKS -->
+
                 <div>
-                    <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Quick Links</h4>
+
+                    <h4 class="font-cinzel font-bold text-white mb-4 text-lg">
+                        Quick Links
+                    </h4>
+
                     <ul class="space-y-2 text-sm">
-                        <li><a href="index.html" class="hover:text-orthodox-gold transition">Home</a></li>
-                        <li><a href="about.html" class="hover:text-orthodox-gold transition">About</a></li>
-                        <li><a href="cuisines.html" class="hover:text-orthodox-gold transition">Cuisines</a></li>
-                        <li><a href="schedule.html" class="hover:text-orthodox-gold transition">Schedule</a></li>
-                        <li><a href="sponsorship.html" class="hover:text-orthodox-gold transition">Sponsorship</a></li>
-                        <li><a href="vendors.html" class="hover:text-orthodox-gold transition">Vendors</a></li>
-                        <li><a href="contact.html" class="hover:text-orthodox-gold transition">Contact Us</a></li>
+
+                        <li>
+                            <a href="index.html" class="hover:text-church-gold transition">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="about.html" class="hover:text-church-gold transition">
+                                About
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="cuisines.html" class="hover:text-church-gold transition">
+                                Cuisines
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="schedule.html" class="hover:text-church-gold transition">
+                                Schedule
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="sponsorship.html" class="hover:text-church-gold transition">
+                                Sponsorship
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="vendors.html" class="hover:text-church-gold transition">
+                                Vendors
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html" class="hover:text-church-gold transition">
+                                Contact Us
+                            </a>
+                        </li>
+
                     </ul>
+
                 </div>
 
+
+                <!-- CONTACT -->
+
                 <div>
-                    <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Contact Info</h4>
+
+                    <h4 class="font-cinzel font-bold text-white mb-4 text-lg">
+                        Contact Info
+                    </h4>
+
                     <ul class="space-y-3 text-sm">
+
                         <li class="flex items-start justify-center sm:justify-start gap-2">
-                            <i data-lucide="map-pin" class="h-4 w-4 mt-1 text-orthodox-gold"></i>
-                            <span>7202 Farm to Market 2920<br>Spring, TX 77379</span>
+
+                            <i
+                                data-lucide="map-pin"
+                                class="h-4 w-4 mt-1 text-church-gold flex-shrink-0"
+                            ></i>
+
+                            <span>
+                                7202 Farm to Market 2920<br>
+                                Spring, TX 77379
+                            </span>
+
                         </li>
+
                         <li class="flex items-center justify-center sm:justify-start gap-2">
-                            <i data-lucide="mail" class="h-4 w-4 text-orthodox-gold"></i>
-                            <span>info@satginternationalfoodfest.org</span>
+
+                            <i
+                                data-lucide="mail"
+                                class="h-4 w-4 text-church-gold flex-shrink-0"
+                            ></i>
+
+                            <span>
+                                info@satginternationalfoodfest.org
+                            </span>
+
                         </li>
+
                     </ul>
+
                 </div>
+
+
+                <!-- FESTIVAL HOURS -->
 
                 <div class="flex flex-col items-center sm:items-start">
-                    <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Festival Hours</h4>
-                    <p class="text-sm">Friday: 4 PM - 10 PM</p>
-                    <p class="text-sm">Saturday: 11 AM - 10 PM</p>
+
+                    <h4 class="font-cinzel font-bold text-white mb-4 text-lg">
+                        Festival Hours
+                    </h4>
+
+                    <p class="text-sm">
+                        Friday: 4 PM - 10 PM
+                    </p>
+
+                    <p class="text-sm">
+                        Saturday: 11 AM - 10 PM
+                    </p>
+
                 </div>
+
             </div>
 
-            <div class="mt-12 pt-6 border-t border-stone-600 text-center text-sm">
-                <p>&copy; 2026 St. Anthony the Great Orthodox Christian Church. All rights reserved.</p>
+
+            <!-- COPYRIGHT -->
+
+            <div class="mt-12 pt-6 border-t border-blue-800 text-center text-sm text-blue-100">
+
+                <p>
+                    &copy; 2026 St. Anthony the Great Orthodox Christian Church.
+                    All rights reserved.
+                </p>
+
             </div>
+
         </div>
+
     </footer>
 
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
     <script>
+
+        // Initialize Lucide icons
         lucide.createIcons();
 
+
+        // Mobile navigation
         function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+
+            const menu = document.getElementById('mobile-menu');
+            const button = document.getElementById('mobile-menu-button');
+
+            const isOpen = !menu.classList.contains('hidden');
+
+            menu.classList.toggle('hidden');
+
+            button.setAttribute(
+                'aria-expanded',
+                String(!isOpen)
+            );
+
         }
+
+
+        // Close mobile menu when a navigation link is selected
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+
+            link.addEventListener('click', () => {
+
+                const menu = document.getElementById('mobile-menu');
+                const button = document.getElementById('mobile-menu-button');
+
+                menu.classList.add('hidden');
+
+                button.setAttribute(
+                    'aria-expanded',
+                    'false'
+                );
+
+            });
+
+        });
+
+
+        // Close mobile menu when clicking outside the navigation
+        document.addEventListener('click', (event) => {
+
+            const navbar = document.getElementById('navbar');
+            const menu = document.getElementById('mobile-menu');
+            const button = document.getElementById('mobile-menu-button');
+
+            if (
+                !navbar.contains(event.target) &&
+                !menu.classList.contains('hidden')
+            ) {
+
+                menu.classList.add('hidden');
+
+                button.setAttribute(
+                    'aria-expanded',
+                    'false'
+                );
+
+            }
+
+        });
+
     </script>
+
 </body>
 </html>
