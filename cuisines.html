@@ -446,24 +446,6 @@
         </div>
     </section>
 
-<!-- World Flag Ring -->
-<section class="world-ring-wrap">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="festival-globe-wrap" aria-label="Moving world flags around a globe">
-
-            <!-- Spinning flag ring -->
-            <div class="festival-ring" id="cuisines-flag-ring"></div>
-
-            <!-- Globe in center -->
-            <div class="festival-globe">
-                <img
-                      src="11_globe.png"
-                    alt="Globe showing world map"
-                >
-            </div>
-        </div>
-    </div>
-</section>
 
         <!-- Text and social icons below the ring -->
 <section class="py-16 bg-white">
@@ -597,15 +579,26 @@
 
     
 
-            <script>
+           <!-- Lightbox for enlarged banners -->
+    <dialog id="lightbox" aria-label="Enlarged banner">
+        <div class="lightbox-inner" id="lightbox-backdrop">
+            <img id="lightbox-img" src="" alt="">
+        </div>
+        <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close enlarged banner">
+            <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+    </dialog>
+ 
+    <script>
+        document.documentElement.classList.add('js');
         lucide.createIcons();
-        
+ 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         }
-
-        window.addEventListener('scroll', function() {
+ 
+        window.addEventListener('scroll', function () {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
                 navbar.classList.add('shadow-md');
@@ -613,94 +606,59 @@
                 navbar.classList.remove('shadow-md');
             }
         });
-    </script>
-
-
-
-    
-
-            <script>
-        lucide.createIcons();
-        
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-md');
-            } else {
-                navbar.classList.remove('shadow-md');
+ 
+        /* Fade banners in as they scroll into view */
+        (function setupReveal() {
+            const items = document.querySelectorAll('.reveal');
+            if (!('IntersectionObserver' in window)) {
+                items.forEach(el => el.classList.add('is-visible'));
+                return;
             }
-        });
-
-
-        (function setupCuisinesFlagOrbit() {
-            const ring = document.getElementById('cuisines-flag-ring');
-            if (!ring) return;
-
-            const flags = [
-                { code: 'us', name: 'United States' },
-                { code: 'ph', name: 'Philippines' },
-                { code: 'gr', name: 'Greece' },
-                { code: 'br', name: 'Brazil' },
-                { code: 'it', name: 'Italy' },
-                { code: 'ps', name: 'Palestine' },
-                { code: 'co', name: 'Colombia' },
-                { code: 'cm', name: 'Cameroon' },
-                { code: 'dk', name: 'Denmark' },
-                { code: 'ru', name: 'Russia' },
-                { code: 'no', name: 'Norway' },
-                { code: 'gt', name: 'Guatemala' },
-                { code: 'ca', name: 'Canada' },
-                { code: 'mx', name: 'Mexico' },
-                { code: 'ua', name: 'Ukraine' },
-                { code: 'ar', name: 'Argentina' },
-                { code: 'sv', name: 'El Salvador' },
-                { code: 'lb', name: 'Lebanon' },
-                { code: 'et', name: 'Ethiopia' },
-                { code: 'in', name: 'India' },
-                { code: 'jp', name: 'Japan' },
-                { code: 'kr', name: 'South Korea' },
-                { code: 'cn', name: 'China' },
-                { code: 'au', name: 'Australia' },
-                { code: 'ir', name: 'Iran' },
-                { code: 'jo', name: 'Jordan' },
-                { code: 'pa', name: 'Panama' },
-                { code: 'ro', name: 'Romania' },
-                { code: 'rs', name: 'Serbia' },
-                { code: 'sy', name: 'Syria' },
-                { code: 've', name: 'Venezuela' }
-            ];
-
-
-
-            flags.forEach((flag, i) => {
-
-
-                const slot = document.createElement('span');
-                slot.className = 'festival-flag-slot';
-                const angle = (i / flags.length) * 360;
-                slot.style.setProperty('--slot-angle', `${angle}deg`);
-
-                const flagCard = document.createElement('span');
-                flagCard.className = 'festival-flag';
-
-                const image = document.createElement('img');
-                image.src = `https://flagcdn.com/w80/${flag.code}.png`;
-                image.alt = `${flag.name} flag`;
-                image.loading = 'lazy';
-
-                flagCard.appendChild(image);
-                slot.appendChild(flagCard);
-                ring.appendChild(slot);
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            items.forEach(el => io.observe(el));
+        })();
+ 
+        /* Lightbox */
+        (function setupLightbox() {
+            const dialog = document.getElementById('lightbox');
+            const bigImg = document.getElementById('lightbox-img');
+            const closeBtn = document.getElementById('lightbox-close');
+            const backdrop = document.getElementById('lightbox-backdrop');
+            if (!dialog || typeof dialog.showModal !== 'function') return;
+ 
+            let opener = null;
+ 
+            document.querySelectorAll('.banner-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const img = card.querySelector('img');
+                    bigImg.src = img.currentSrc || img.src;
+                    bigImg.alt = img.alt;
+                    opener = card;
+                    dialog.showModal();
+                    closeBtn.focus();
+                });
+            });
+ 
+            function close() {
+                dialog.close();
+            }
+            closeBtn.addEventListener('click', close);
+            backdrop.addEventListener('click', (e) => {
+                if (e.target === backdrop) close();
+            });
+            dialog.addEventListener('close', () => {
+                bigImg.src = '';
+                if (opener) opener.focus();
             });
         })();
-
-
     </script>
-
+ 
 </body>
 </html>
