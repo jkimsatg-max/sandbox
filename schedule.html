@@ -90,47 +90,243 @@
         .gradient-header {
             background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
         }
-        .timeline-line {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, #D4AF37, #9B2C2C);
-        }
-        @media (max-width: 768px) {
-            .timeline-line {
-                left: 30px;
-            }
-        }
-
-          /* Schedule images */
-        .schedule-wrap {
+         .festival-schedules {
             width: 100%;
-            max-width: 56rem;
-            margin-left: auto;
-            margin-right: auto;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .schedule-img {
-            display: block;
-            width: 100%;
-            height: auto;
-            min-width: 640px;
+            max-width: 1080px;
             margin: 0 auto;
+        }
+
+        .schedule-card {
+            width: 100%;
+            margin: 0 auto 2.5rem;
+            overflow: hidden;
+            background: #ffffff;
+            border: 1px solid #c9c9c9;
             border-radius: 0.5rem;
             box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
         }
 
+        .schedule-scroll {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+
+        .festival-table {
+            width: 100%;
+            min-width: 900px;
+            border-collapse: collapse;
+            table-layout: fixed;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #111111;
+            background: #ffffff;
+        }
+
+        .festival-table caption {
+            caption-side: top;
+            padding: 0.55rem 0.7rem;
+            background: #34434b;
+            color: #ffffff;
+            text-align: left;
+            font-size: 1.18rem;
+            line-height: 1.2;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .festival-table caption .schedule-hours {
+            font-weight: 700;
+            margin-left: 0.35rem;
+        }
+
+        .festival-table col.time-column {
+            width: 72px;
+        }
+
+        .festival-table th,
+        .festival-table td {
+            border: 1px solid #ffffff;
+            vertical-align: middle;
+        }
+
+        .festival-table thead th {
+            height: 30px;
+            padding: 0.25rem 0.35rem;
+            color: #ffffff;
+            text-align: center;
+            font-size: 0.92rem;
+            line-height: 1.05;
+            font-weight: 700;
+            letter-spacing: 0.015em;
+        }
+
+        .festival-table thead th.time-header {
+            background: #4a4e51;
+        }
+
+        .festival-table thead th.main-header {
+            background: #c89a22;
+        }
+
+        .festival-table thead th.children-header {
+            background: #347c92;
+        }
+
+        .festival-table thead th.market-header {
+            background: #9a2d29;
+        }
+
+        .festival-table thead th.church-header {
+            background: #607a91;
+        }
+
+        .festival-table tbody th.time {
+            width: 72px;
+            min-width: 72px;
+            padding: 0.35rem 0.2rem;
+            background: #f4f4f4;
+            color: #111111;
+            text-align: center;
+            font-size: 0.82rem;
+            line-height: 1.05;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .festival-table tbody td {
+            min-height: 44px;
+            padding: 0.42rem 0.5rem;
+            text-align: left;
+            font-size: 0.88rem;
+            line-height: 1.2;
+        }
+
+        /* Schedule column colors */
+        .main-cell {
+            background: #fff4d5;
+        }
+
+        .children-cell {
+            background: #dceff4;
+        }
+
+        .market-cell {
+            background: #f5e5e3;
+        }
+
+        .church-cell {
+            background: #e7edf1;
+        }
+
+        .closed-cell {
+            background: #5b5b5b !important;
+            color: #ffffff;
+        }
+
+        .opening-row td {
+            text-align: center;
+            font-weight: 700;
+            font-style: italic;
+            text-transform: uppercase;
+            min-height: 34px;
+            padding: 0.4rem;
+        }
+
+        .schedule-event-title {
+            display: block;
+            font-weight: 700;
+        }
+
+        .schedule-event-subtitle {
+            display: block;
+            margin-top: 0.12rem;
+            font-style: italic;
+        }
+
+        .schedule-event-reading {
+            display: block;
+            margin-top: 0.1rem;
+            font-size: 0.84rem;
+            font-weight: 700;
+        }
+
+        .schedule-note {
+            display: block;
+            font-size: 0.78rem;
+            font-style: italic;
+        }
+
+        .schedule-signing {
+            font-weight: 600;
+        }
+
+        .schedule-closing {
+            text-align: center !important;
+            font-weight: 700;
+            font-style: italic;
+            text-transform: uppercase;
+        }
+
+        /* Keep the dense visual proportions of the supplied schedules. */
+        .saturday-table tbody tr:nth-child(n+2):nth-child(-n+15) td,
+        .saturday-table tbody tr:nth-child(n+2):nth-child(-n+15) th {
+            height: 58px;
+        }
+
+        .friday-table tbody tr td,
+        .friday-table tbody tr th {
+            height: 47px;
+        }
+
+        .friday-table tbody tr:nth-child(2) td,
+        .friday-table tbody tr:nth-child(2) th {
+            height: 78px;
+        }
+
+        @media (max-width: 767px) {
+            .schedule-card {
+                border-radius: 0.35rem;
+            }
+
+            .festival-table {
+                min-width: 850px;
+            }
+
+            .festival-table caption {
+                font-size: 1rem;
+            }
+
+            .festival-table thead th {
+                font-size: 0.78rem;
+            }
+
+            .festival-table tbody td,
+            .festival-table tbody th.time {
+                font-size: 0.78rem;
+            }
+
+            .festival-table tbody td {
+                padding: 0.35rem;
+            }
+
+            .schedule-event-reading {
+                font-size: 0.72rem;
+            }
+
+            .schedule-note {
+                font-size: 0.7rem;
+            }
+        }
+
         @media (min-width: 768px) {
-            .schedule-img {
-                min-width: 0;
+            .schedule-scroll {
+                overflow-x: visible;
             }
         }
     </style>
 </head>
+
 <body class="font-sans text-gray-800 bg-stone-50">
 
     <!-- Navigation -->
