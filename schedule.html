@@ -948,33 +948,63 @@
 
 <!-- Festival Map -->
 <section class="pt-4 pb-12 bg-white" aria-labelledby="festival-map-title">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-    <h2 id="festival-map-title" class="font-serif text-3xl font-bold text-church-blue mb-6">
-      Festival Map
-    </h2>
+<h2 id="festival-map-title" class="font-serif text-3xl font-bold text-church-blue mb-6">
+Festival Map
+</h2>
 
-    <!-- Inline map preview -->
-    <figure class="mx-auto overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md">
-      <img src="FestivalMap.png"
-           alt="Map of the festival grounds showing the Main Tent, Children's Village, Marketplace, and church"
-           width="1600"
-           height="1000"
-           loading="lazy"
-           decoding="async"
-           class="block w-full h-auto">
-    </figure>
+<!-- Clickable Map (UNCHANGED) -->
+ <button type="button"
+                onclick="openMapPreview()"
+                title="Click to enlarge festival map"
+                class="block w-full cursor-zoom-in">
+            <img src="FestivalMap.png"
+                 alt="Festival grounds map"
+                 loading="lazy"
+                 class="w-full h-auto object-contain">
+        </button>
 
-    <p class="text-sm text-gray-500 mt-3">
-      Need a closer look?
-      <a href="FestivalMap.png"
-         target="_blank"
-         rel="noopener"
-         class="underline text-church-blue hover:text-church-gold">Open the map full size</a>
+    <p class="text-sm text-gray-500 mt-3"> Tap or click the map to view it full size.
     </p>
-
-  </div>
+</div>
 </section>
+
+<!-- NEW: Map Preview Overlay (same as About page) -->
+<div id="mapPreview"
+     class="hidden fixed inset-0 z-50 bg-black/80 p-4 flex items-center justify-center"
+     onclick="closeMapPreview()">
+
+    <div class="relative max-w-6xl max-h-[95vh]">
+        <button type="button"
+                onclick="closeMapPreview(event)"
+                class="absolute top-3 right-3 z-10 bg-white/90 hover:bg-white text-gray-800 rounded-full w-10 h-10 text-2xl shadow-lg"
+                aria-label="Close map preview">
+            &times;
+        </button>
+
+        <img src="FestivalMap.png"
+             alt="Festival grounds map enlarged"
+             class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl">
+    </div>
+</div>
+
+<!-- REPLACED: was window.open(...) -->
+<script>
+function openMapPreview() {
+    document.getElementById('mapPreview').classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+}
+
+function closeMapPreview(event) {
+    if (event) {
+        event.stopPropagation();
+    }
+
+    document.getElementById('mapPreview').classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+}
+</script>
     
  <!-- Text and social icons below the ring -->
      <section class="py-16 bg-white">
