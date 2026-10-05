@@ -90,7 +90,18 @@
         .gradient-header {
             background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
         }
-         .festival-schedules {
+               /* iOS Safari: stop automatic text inflation in landscape */
+        html {
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        /* =====================================================
+           FESTIVAL SCHEDULE
+           Desktop/large tablet (900px+): classic table
+           Below 900px: stacked, time-ordered cards
+           ===================================================== */
+        .festival-schedules {
             width: 100%;
             max-width: 1080px;
             margin: 0 auto;
@@ -110,17 +121,18 @@
             width: 100%;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
         }
 
         .festival-table {
             width: 100%;
-            min-width: 900px;
+            min-width: 0; /* was 900px: the cause of the overflow */
             border-collapse: collapse;
             table-layout: fixed;
             font-family: Arial, Helvetica, sans-serif;
             color: #111111;
             background: #ffffff;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
 
         .festival-table caption {
@@ -161,25 +173,11 @@
             letter-spacing: 0.015em;
         }
 
-        .festival-table thead th.time-header {
-            background: #4a4e51;
-        }
-
-        .festival-table thead th.main-header {
-            background: #c89a22;
-        }
-
-        .festival-table thead th.children-header {
-            background: #347c92;
-        }
-
-        .festival-table thead th.market-header {
-            background: #9a2d29;
-        }
-
-        .festival-table thead th.church-header {
-            background: #607a91;
-        }
+        .festival-table thead th.time-header     { background: #4a4e51; }
+        .festival-table thead th.main-header     { background: #c89a22; }
+        .festival-table thead th.children-header { background: #347c92; }
+        .festival-table thead th.market-header   { background: #9a2d29; }
+        .festival-table thead th.church-header   { background: #607a91; }
 
         .festival-table tbody th.time {
             width: 72px;
@@ -195,7 +193,6 @@
         }
 
         .festival-table tbody td {
-            min-height: 44px;
             padding: 0.42rem 0.5rem;
             text-align: left;
             font-size: 0.88rem;
@@ -203,21 +200,10 @@
         }
 
         /* Schedule column colors */
-        .main-cell {
-            background: #fff4d5;
-        }
-
-        .children-cell {
-            background: #dceff4;
-        }
-
-        .market-cell {
-            background: #f5e5e3;
-        }
-
-        .church-cell {
-            background: #e7edf1;
-        }
+        .main-cell     { background: #fff4d5; }
+        .children-cell { background: #dceff4; }
+        .market-cell   { background: #f5e5e3; }
+        .church-cell   { background: #e7edf1; }
 
         .closed-cell {
             background: #ffffff !important;
@@ -229,7 +215,6 @@
             font-weight: 700;
             font-style: italic;
             text-transform: uppercase;
-            min-height: 34px;
             padding: 0.4rem;
         }
 
@@ -268,7 +253,7 @@
             text-transform: uppercase;
         }
 
-        /* Keep the dense visual proportions of the supplied schedules. */
+        /* Dense row heights: desktop table only */
         .saturday-table tbody tr:nth-child(n+2):nth-child(-n+15) td,
         .saturday-table tbody tr:nth-child(n+2):nth-child(-n+15) th {
             height: 58px;
@@ -284,46 +269,133 @@
             height: 78px;
         }
 
-        @media (max-width: 767px) {
+        /* =====================================================
+           STACKED LAYOUT: phones, landscape phones, tablets < 900px
+           ===================================================== */
+        @media (max-width: 899px) {
+
             .schedule-card {
-                border-radius: 0.35rem;
+                margin-bottom: 1.75rem;
             }
 
-            .festival-table {
-                min-width: 850px;
+            .schedule-scroll {
+                overflow: visible;
+            }
+
+            /* Turn table parts into plain blocks */
+            .festival-table,
+            .festival-table tbody,
+            .festival-table tr,
+            .festival-table th,
+            .festival-table td,
+            .festival-table caption {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .festival-table colgroup {
+                display: none;
+            }
+
+            /* Hide column headers visually but keep them for screen readers */
+            .festival-table thead {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                margin: -1px;
+                padding: 0;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
             }
 
             .festival-table caption {
-                font-size: 1rem;
+                font-size: 1.05rem;
+                padding: 0.7rem 0.85rem;
             }
 
-            .festival-table thead th {
-                font-size: 0.78rem;
+            .festival-table caption .schedule-hours {
+                display: block;
+                margin: 0.2rem 0 0;
+                font-size: 0.9rem;
+                font-weight: 600;
             }
 
-            .festival-table tbody td,
+            /* Each time slot = one card */
+            .festival-table tbody tr {
+                border-bottom: 1px solid #cfcfcf;
+            }
+
+            .festival-table tbody tr:last-child {
+                border-bottom: 0;
+            }
+
             .festival-table tbody th.time {
-                font-size: 0.78rem;
+                min-width: 0;
+                padding: 0.45rem 0.85rem;
+                background: #4a4e51;
+                color: #ffffff;
+                text-align: left;
+                font-size: 0.85rem;
+                letter-spacing: 0.04em;
+                white-space: normal;
+                border: 0;
             }
 
             .festival-table tbody td {
-                padding: 0.35rem;
+                padding: 0.65rem 0.85rem;
+                font-size: 0.95rem;
+                line-height: 1.35;
+                border: 0;
+                border-left: 5px solid transparent;
             }
 
-            .schedule-event-reading {
-                font-size: 0.72rem;
+            /* Beat the desktop fixed-height rules */
+            .festival-table tbody th,
+            .festival-table tbody td {
+                height: auto !important;
+                min-height: 0;
             }
 
-            .schedule-note {
+            /* Hide empty / closed cells */
+            .festival-table tbody td:empty,
+            .festival-table tbody td.closed-cell {
+                display: none;
+            }
+
+            /* Area label on every event */
+            .festival-table tbody td::before {
+                display: block;
+                margin-bottom: 0.2rem;
                 font-size: 0.7rem;
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: #444444;
             }
-        }
 
-        @media (min-width: 768px) {
-            .schedule-scroll {
-                overflow-x: visible;
+            .festival-table td.main-cell::before     { content: "Main Tent"; }
+            .festival-table td.children-cell::before { content: "Children's Village"; }
+            .festival-table td.market-cell::before   { content: "Marketplace"; }
+            .festival-table td.church-cell::before   { content: "Inside the Church"; }
+
+            /* Opening/closing banners don't need a label */
+            .festival-table .opening-row td::before,
+            .festival-table td.schedule-closing::before {
+                display: none;
             }
-        }
+
+            /* Color accent per area (matches desktop header colors) */
+            .festival-table td.main-cell     { border-left-color: #c89a22; }
+            .festival-table td.children-cell { border-left-color: #347c92; }
+            .festival-table td.market-cell   { border-left-color: #9a2d29; }
+            .festival-table td.church-cell   { border-left-color: #607a91; }
+
+            .schedule-event-reading { font-size: 0.85rem; }
+            .schedule-note          { font-size: 0.8rem; }
+        } 
     </style>
 </head>
 
