@@ -178,7 +178,7 @@
             width: 100%;
             height: auto;
         }
-        .banner-card .zoom-hint {
+        .banner-card .menu-hint {
             position: absolute;
             right: 0.6rem;
             bottom: 0.6rem;
@@ -197,14 +197,14 @@
             transition: opacity 0.25s ease, transform 0.25s ease;
             pointer-events: none;
         }
-        .banner-card:hover .zoom-hint,
-        .banner-card:focus-visible .zoom-hint {
-            opacity: 1;
-            transform: none;
-        }
+.banner-card:hover .menu-hint,
+.banner-card:focus-visible .menu-hint {
+    opacity: 1;
+    transform: none;
+}
         /* Touch devices have no hover: keep the hint visible */
         @media (hover: none) {
-            .banner-card .zoom-hint { opacity: 1; transform: none; }
+        .banner-card .menu-hint { opacity: 1; transform: none; }
         }
 
         /* Soft fade-in as banners scroll into view (only when JS is on) */
@@ -272,7 +272,7 @@
             border-radius: 0.75rem;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             background: #fff;
-            cursor: zoom-in;
+            cursor: pointer;
         }
         /* Zoomed: full width, scroll to read small text */
         .lightbox-inner img.zoomed {
