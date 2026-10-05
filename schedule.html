@@ -955,17 +955,15 @@ Festival Map
 </h2> 
 
 <!-- Clickable Map - Opens in External Image Viewer --> 
-    <a href="FestivalMap.png" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="block mx-auto max-w-4xl" 
-        aria-label="Open the full-size festival map in a new tab"> 
-        
-        <img src="FestivalMap.png" 
-            alt="Aerial map of the St. Anthony the Great International Food Festival grounds showing the Main Entrance and ADA/VIP Entrance, Main Tent stage, St. Anthony Hall Marketplace, Children's Village, church tours and speaker sessions, restrooms, Command Center, emergency services, admissions and ticket booths, and event parking areas, with FM-2920 along the bottom." 
-            class="w-full h-auto mx-auto rounded-lg border border-gray-300 shadow-lg hover:opacity-95 transition-opacity cursor-pointer" 
-            loading="lazy" 
-            decoding="async"> 
+ <button type="button"
+                onclick="openMapPreview()"
+                title="Click to enlarge festival map"
+                class="block w-full cursor-zoom-in">
+            <img src="FestivalMap.png"
+                 alt="Festival grounds map"
+                 loading="lazy"
+                 class="w-full h-auto object-contain">
+        </button>
     </a> 
     
     <p class="text-sm text-gray-500 mt-3"> Tap or click the map to view it full size.
