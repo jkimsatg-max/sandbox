@@ -946,31 +946,35 @@
     </section>  <!-- closes Schedule Content section -->
 
 
-<!-- Festival Map --> 
-<section class="pt-4 pb-12 bg-white" aria-labelledby="festival-map-title"> 
-<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center"> 
+<!-- Festival Map -->
+<section class="pt-4 pb-12 bg-white" aria-labelledby="festival-map-title">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-<h2 id="festival-map-title" class="font-serif text-3xl font-bold text-church-blue mb-6"> 
-Festival Map 
-</h2> 
+    <h2 id="festival-map-title" class="font-serif text-3xl font-bold text-church-blue mb-6">
+      Festival Map
+    </h2>
 
-<!-- Clickable Map - Opens in External Image Viewer --> 
- <button type="button"
-                onclick="openMapPreview()"
-                title="Click to enlarge festival map"
-                class="block w-full cursor-zoom-in">
-            <img src="FestivalMap.png"
-                 alt="Festival grounds map"
-                 loading="lazy"
-                 class="w-full h-auto object-contain">
-        </button>
-    </a> 
-    
-    <p class="text-sm text-gray-500 mt-3"> Tap or click the map to view it full size.
+    <!-- Inline map preview -->
+    <figure class="mx-auto overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md">
+      <img src="FestivalMap.png"
+           alt="Map of the festival grounds showing the Main Tent, Children's Village, Marketplace, and church"
+           width="1600"
+           height="1000"
+           loading="lazy"
+           decoding="async"
+           class="block w-full h-auto">
+    </figure>
+
+    <p class="text-sm text-gray-500 mt-3">
+      Need a closer look?
+      <a href="FestivalMap.png"
+         target="_blank"
+         rel="noopener"
+         class="underline text-church-blue hover:text-church-gold">Open the map full size</a>
     </p>
-</div> 
-</section>
 
+  </div>
+</section>
     
  <!-- Text and social icons below the ring -->
      <section class="py-16 bg-white">
